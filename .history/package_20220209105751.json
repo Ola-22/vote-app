@@ -24,8 +24,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "plugin:prettier/recommended",
-      "prettier"
+      "react-app/jest"
     ]
   },
   "browserslist": {
