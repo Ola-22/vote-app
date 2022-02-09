@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+.choices{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  .choices-card{
+    width: 334px;
+    height: 72px;
+    box-shadow: -3px 7px 6.5px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    // justify-content: space-evenly;
+    .active{
+      border: 2px solid $blueColor;
+    }
+    & img{
+      margin-right: 1em;
+    }
+    & h4{
+      margin-right: 2em;
+    }
+  }
+}
