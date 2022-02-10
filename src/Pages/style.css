@@ -1,0 +1,27 @@
+.headerPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.headerPage button {
+  width: 39px;
+  height: 39px;
+  -webkit-box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+          box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.headerPage .logoHeader {
+  margin-left: 4.5em;
+}
+/*# sourceMappingURL=style.css.map */
