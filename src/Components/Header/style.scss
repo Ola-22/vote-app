@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  & button{
+    background-color: $redColor;
+    width: 139px;
+    height: 39px;
+    box-shadow: -3px 7px 6.5px rgba(0,0,0,0.05);
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: $whiteColor;
+    font-size: 15px;
+  }
+}
