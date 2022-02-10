@@ -13,12 +13,20 @@
 .title{
   font-size: 14px;
   display: flex;
-  /* justify-content: flex-end; */
   color: #2f2f2f;
   opacity: 0.4;
-  margin: 1.5em 1em 0 0;
+  margin: 1.5em 1.5em 0 0;
 }
 
 .active{
-  border: 1px solid #2e558d;
+  border: 2px solid #2e558d;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li{
+  list-style: none;
 }
