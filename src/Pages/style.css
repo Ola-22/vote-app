@@ -1,32 +1,27 @@
-.flexBox, .header, .header button {
+.headerPage {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1em;
 }
 
-.header {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.header button {
-  background-color: #ec4e5d;
-  width: 139px;
+.headerPage button {
+  width: 39px;
   height: 39px;
   -webkit-box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
           box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
   border: none;
   border-radius: 10px;
-  color: #ffffff;
-  font-size: 15px;
   cursor: pointer;
+}
+
+.headerPage .logoHeader {
+  margin-left: 4.5em;
 }
 /*# sourceMappingURL=style.css.map */

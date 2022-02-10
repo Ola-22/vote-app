@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+@import "../../styles/main.scss";
+
+.nav-tabs{
+  @extend .flexBox;
+
+  .tab-link{
+    width: 108px;
+    height: 36px;
+    box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+    @extend .flexBox;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &.activeSelect{
+      color: $whiteColor;
+      background-color: $redColor;
+    }
+  }
+}

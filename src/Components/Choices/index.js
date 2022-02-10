@@ -21,21 +21,25 @@ export default function Choices() {
 
   function setActiveElement(id) {
     setActive(id);
+    console.log(isActive);
   }
   return (
     <div className="choices">
-      {data.Choices.map((choice, index) => (
-        <div>
+      {data.Choices.map((choice) => (
+        <div key={choice._id}>
           <ChoicesCard
             className={
-              index === isActive ? "choices-card active" : "choices-card"
+              choice._id === isActive ? "choices-card active" : "choices-card"
             }
-            onClick={() => setActiveElement(index)}
+            onClick={() => setActiveElement(choice._id)}
             name={choice.name}
             src={choice.imgSrc}
           />
         </div>
       ))}
+      {isActive && (
+        <button style={{ backgroundColor: "#2e558d" }}>تأكيد</button>
+      )}
     </div>
   );
 }
