@@ -1,10 +1,13 @@
 @import "../../styles/variables";
+@import "../../styles/main";
 
 .choices{
-  display: flex;
-  flex-direction: column;
+  @extend .flexBox;
+  justify-content: flex-start;
   margin-top: 1em;
   .choices-card{
+    margin-right: 1em;
+    cursor: pointer;
     width: 334px;
     height: 72px;
     box-shadow: -3px 7px 6.5px rgba(0,0,0,0.05);
@@ -12,7 +15,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    // justify-content: space-evenly;
     .active{
       border: 2px solid $blueColor;
     }
@@ -22,5 +24,19 @@
     & h4{
       margin-right: 2em;
     }
+  }
+
+  & button{
+    width: 335px;
+    height: 50px;
+    background-color: $blueColor;
+    color: $whiteColor;
+    box-shadow: -3px 7px 6.5px rgba(46,85,141,0.30);
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 1em;
+    margin-top: 4em;
   }
 }
