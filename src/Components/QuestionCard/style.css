@@ -1,3 +1,17 @@
+.flexBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .question-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,6 +23,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 334px;
   height: 117px;
   -webkit-box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
@@ -16,6 +32,7 @@
   border-radius: 10px;
   margin-top: 10px;
   padding-right: 20px;
+  margin-right: 1em;
 }
 
 .question-container > div {
@@ -25,6 +42,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .question-container > div h5 {
@@ -33,7 +52,25 @@
 
 .question-container h4 {
   font-size: 16px;
-  color: "#2f2f2f";
+  color: #2f2f2f;
   margin: 10px 5em 10px 0;
+}
+
+.question-container .vote-number h6 {
+  margin-right: 2em;
+  font-size: 12px;
+}
+
+.question-container .vote-number h5 {
+  color: #2f2f2f;
+  opacity: 0.6;
+}
+
+.question-container .background {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  background-color: rgba(46, 85, 141, 0.2);
+  border-radius: 50%;
 }
 /*# sourceMappingURL=style.css.map */
