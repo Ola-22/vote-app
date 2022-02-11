@@ -1,10 +1,9 @@
 const ProgressBar = ({ bgcolor, progress, height }) => {
   const ProgressContainer = {
     height: height,
-    width: "100%",
+    width: "123px",
     backgroundColor: "whitesmoke",
     borderRadius: 40,
-    margin: 50,
   };
 
   const ProgressDiv = {
@@ -18,12 +17,13 @@ const ProgressBar = ({ bgcolor, progress, height }) => {
     padding: 10,
     color: "black",
     fontWeight: 900,
+    display: "none",
   };
 
   return (
     <div style={ProgressContainer}>
       <div style={ProgressDiv}>
-        <span style={ProgressText}>{`${progress}%`}</span>
+        <span style={ProgressText}>{`${progress}`}</span>
       </div>
     </div>
   );
