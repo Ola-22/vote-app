@@ -1,24 +1,47 @@
 import { data } from "../../data";
 import "./style.css";
 
-export default function QuestionCard() {
+export default function QuestionCard({
+  endVote,
+  title,
+  numberVote,
+  imgSrc,
+  componay,
+  img,
+  numberTitle,
+}) {
   return (
     <>
-      {data.Questions.map((question) => (
-        <div key={question._id} className="question-container">
-          <div>
-            <img src="/images/calender.png" alt="" />
-            <h5 style={{ color: "#b6b6b6" }} className="date-vote">
-              {question.endVote}
-            </h5>
+      <div className="question-container">
+        <div>
+          <img src="/images/calender.png" alt="" />
+          <h5 style={{ color: "#b6b6b6" }} className="date-vote">
+            {endVote}
+          </h5>
+        </div>
+        <h4>{title}</h4>
+        <div>
+          <img src={imgSrc} alt="" />
+          <h5>{componay}</h5>
+        </div>
+        <div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* <div className="background" /> */}
+            <img src={img} alt="" />
           </div>
-          <h4>{question.title}</h4>
-          <div>
-            <img src="/images/company.png" alt="" />
-            <h5>شركة نيوسليوشن</h5>
+
+          <div className="vote-number">
+            <h6>{numberTitle}</h6>
+            <h5>{numberVote}</h5>
           </div>
         </div>
-      ))}
+      </div>
     </>
   );
 }
