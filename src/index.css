@@ -30,3 +30,11 @@ a{
 li{
   list-style: none;
 }
+
+.card{
+  justify-content: space-around;
+}
+
+.card > h4{
+  margin-right: 0;
+}
