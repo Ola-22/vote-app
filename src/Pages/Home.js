@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Header />
       {data.Questions.map((question) => (
-        <>
+        <div key={question._id}>
           <Link to={`/vote-main/${question._id}`}>
             <QuestionCard
               endVote={question.endVote}
@@ -18,7 +18,7 @@ export default function Home() {
               componay={question.company}
             />
           </Link>
-        </>
+        </div>
       ))}
       <h5 className="title">المرشحين</h5>
       <Choices />

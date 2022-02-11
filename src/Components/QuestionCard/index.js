@@ -1,4 +1,3 @@
-import { data } from "../../data";
 import "./style.css";
 
 export default function QuestionCard({
