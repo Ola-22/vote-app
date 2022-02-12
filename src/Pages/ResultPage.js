@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ChoicesCard from "../Components/Choices/ChoicesCard";
 import Header from "../Components/Header";
 import QuestionCard from "../Components/QuestionCard";

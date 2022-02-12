@@ -19,7 +19,7 @@ export default function QuestionCard({
           </h5>
         </div>
         <h4>{title}</h4>
-        <div>
+        <div style={{ justifyContent: "flex-start" }}>
           <img src={imgSrc} alt="" />
           <h5>{componay}</h5>
         </div>
