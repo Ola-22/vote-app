@@ -14,7 +14,7 @@ export default function QuestionCard({
       <div className="question-container" style={{ height: "121px" }}>
         <div>
           <img src="/images/calender.png" alt="" />
-          <h5 style={{ color: "#b6b6b6" }} className="date-vote">
+          <h5 style={{ color: "#b6b6b6", margin: "0" }} className="date-vote">
             {endVote}
           </h5>
         </div>
