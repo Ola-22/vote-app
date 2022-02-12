@@ -6,23 +6,22 @@ export default function ChoicesCard({
   progress,
   voteNumber,
   RateVote,
+  per,
 }) {
   return (
     <div className={className} onClick={onClick}>
       <img src={src} alt="" />
-      <div
-      // style={{
-      //   display: "flex",
-      //   flexDirection: "column",
-      //   justifyContent: "center",
-      // }}
-      >
+      <div>
         <h4>{name}</h4>
         <p>{progress}</p>
       </div>
 
       <div>
-        <h6 style={{ fontSize: "16px", color: "#2f2f2f" }}>{RateVote}</h6>
+        <div style={{ display: "flex" }}>
+          <h6 style={{ fontSize: "16px", color: "#2f2f2f" }}>{RateVote}</h6>
+          <span>{per}</span>
+        </div>
+
         <h5 style={{ fontSize: "12px", color: "#2f2f2f", opacity: "0.6" }}>
           {voteNumber}
         </h5>
