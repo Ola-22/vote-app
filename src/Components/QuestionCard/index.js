@@ -11,7 +11,7 @@ export default function QuestionCard({
 }) {
   return (
     <>
-      <div className="question-container">
+      <div className="question-container" style={{ height: "121px" }}>
         <div>
           <img src="/images/calender.png" alt="" />
           <h5 style={{ color: "#b6b6b6" }} className="date-vote">
@@ -23,23 +23,33 @@ export default function QuestionCard({
           <img src={imgSrc} alt="" />
           <h5>{componay}</h5>
         </div>
-        <div>
-          <div
+        <>
+          {/* <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
-          >
-            {/* <div className="background" /> */}
-            <img src={img} alt="" />
-          </div>
+          > */}
+          {/* <div className="background" /> */}
 
-          <div className="vote-number">
-            <h6>{numberTitle}</h6>
-            <h5>{numberVote}</h5>
+          {/* </div> */}
+
+          <div
+            className="vote-number"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              // justifyContent: "center",
+            }}
+          >
+            <img src={img} alt="" />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <h6>{numberTitle}</h6>
+              <h5>{numberVote}</h5>
+            </div>
           </div>
-        </div>
+        </>
       </div>
     </>
   );
