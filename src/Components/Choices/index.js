@@ -44,13 +44,6 @@ export default function Choices() {
           تأكيد
         </button>
       )}
-      {Object.entries(results).map(([key, val]) => {
-        return (
-          <p key={key}>
-            {key}: {val}
-          </p>
-        );
-      })}
     </div>
   );
 }
