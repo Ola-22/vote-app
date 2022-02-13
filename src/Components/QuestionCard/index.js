@@ -12,7 +12,7 @@ export default function QuestionCard({
   return (
     <>
       <div className="question-container" style={{ height: "121px" }}>
-        <div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <img src="/images/calender.png" alt="" />
           <h5 style={{ color: "#b6b6b6", margin: "0" }} className="date-vote">
             {endVote}
@@ -24,23 +24,13 @@ export default function QuestionCard({
           <h5>{componay}</h5>
         </div>
         <>
-          {/* <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          > */}
           {/* <div className="background" /> */}
-
-          {/* </div> */}
 
           <div
             className="vote-number"
             style={{
               display: "flex",
               alignItems: "center",
-              // justifyContent: "center",
             }}
           >
             <img src={img} alt="" />
