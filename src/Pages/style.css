@@ -24,4 +24,9 @@
 .headerPage .logoHeader {
   margin-left: 4.5em;
 }
+
+.result .choices-card {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
 /*# sourceMappingURL=style.css.map */
