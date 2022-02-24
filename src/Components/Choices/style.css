@@ -27,8 +27,9 @@
           box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   margin-bottom: 10px;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .choices .choices-card .active {
