@@ -10,6 +10,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
+    "getmac": "^5.20.0",
+    "moment": "^2.29.1",
     "prettier": "^2.5.1",
     "qrcode": "^1.5.0",
     "react": "^17.0.2",
