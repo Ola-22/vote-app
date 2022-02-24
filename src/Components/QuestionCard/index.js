@@ -1,12 +1,12 @@
 import "./style.css";
 
 export default function QuestionCard({
-  endVote,
-  title,
+  end_at,
+  question,
+  company,
   numberVote,
-  imgSrc,
-  componay,
   img,
+  companyImg,
   numberTitle,
 }) {
   return (
@@ -15,31 +15,29 @@ export default function QuestionCard({
         <div style={{ display: "flex", justifyContent: "center" }}>
           <img src="/images/calender.png" alt="" />
           <h5 style={{ color: "#b6b6b6", margin: "0" }} className="date-vote">
-            {endVote}
+            ينتهي التصويت في
+            <span>{end_at}</span>
           </h5>
         </div>
-        <h4>{title}</h4>
+        <h4>{question}</h4>
         <div style={{ justifyContent: "flex-start" }}>
-          <img src={imgSrc} alt="" />
-          <h5>{componay}</h5>
+          <img src={companyImg} alt="" />
+          <h5>{company}</h5>
         </div>
-        <>
-          {/* <div className="background" /> */}
 
-          <div
-            className="vote-number"
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <img src={img} alt="" />
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <h6>{numberTitle}</h6>
-              <h5>{numberVote}</h5>
-            </div>
+        <div
+          className="vote-number"
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <img src={img} alt="" />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <h6>{numberTitle}</h6>
+            <h5>{numberVote}</h5>
           </div>
-        </>
+        </div>
       </div>
     </>
   );

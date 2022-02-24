@@ -1,17 +1,22 @@
-import { data } from "../../data";
 import QuestionCard from "../QuestionCard";
+import moment from "moment";
 
-export default function NewShared() {
+export default function MostShared({ questions }) {
+  const MostQue = questions.sort((a, b) => b.id - a.id);
+  console.log("n", MostQue);
+
   return (
     <div>
-      {data.PublicShared.MostShared.map((question) => (
+      {MostQue?.map((qu) => (
         <>
           <QuestionCard
-            endVote={question.endVote}
-            title={question.title}
-            img={question.img}
-            numberVote={question.numberVote}
-            numberTitle={question.numberTitle}
+            question={qu.question}
+            end_at={moment(qu.end_at).format("MMMM Do YYYY h a")}
+            img="/images/share.png"
+            numberTitle="عدد المصوتين"
+            // numberVote={qu.candidates.reduce((a, b) => (
+            //   <h2>{(a + b, 0)}</h2>
+            // ))}
           />
         </>
       ))}

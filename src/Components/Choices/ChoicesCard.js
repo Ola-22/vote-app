@@ -1,3 +1,5 @@
+import "./style.css";
+
 export default function ChoicesCard({
   src,
   name,
@@ -6,7 +8,6 @@ export default function ChoicesCard({
   progress,
   voteNumber,
   RateVote,
-  per,
 }) {
   return (
     <div className={className} onClick={onClick}>
@@ -18,12 +19,11 @@ export default function ChoicesCard({
 
       <div>
         <div style={{ display: "flex" }}>
-          <h6 style={{ fontSize: "16px", color: "#2f2f2f" }}>{RateVote}</h6>
-          <span>{per}</span>
+          <h6 style={{ fontSize: "16px", color: "#2f2f2f" }}>{RateVote} %</h6>
         </div>
 
         <h5 style={{ fontSize: "12px", color: "#2f2f2f", opacity: "0.6" }}>
-          {voteNumber}
+          {voteNumber} صوت
         </h5>
       </div>
     </div>

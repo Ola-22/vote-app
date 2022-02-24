@@ -6,7 +6,7 @@ import NewShared from "../Components/VotePublic/NewShared";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
-export default function VoteMain() {
+export default function VoteMain({ questions }) {
   const [selected, setSelected] = useState("أحدث الإضافات");
   const navigate = useNavigate();
 
@@ -31,13 +31,13 @@ export default function VoteMain() {
       >
         <>
           <Tab isSelected={selected === "أحدث الإضافات"}>
-            <NewShared />
+            <NewShared questions={questions} />
           </Tab>
         </>
 
         <>
           <Tab isSelected={selected === "الأكثر مشاركة"}>
-            <MostShared />
+            <MostShared questions={questions} />
           </Tab>
         </>
       </TabNav>
