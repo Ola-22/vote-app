@@ -1,63 +1,68 @@
 import { useParams } from "react-router-dom";
-import ChoicesCard from "../Components/Choices/ChoicesCard";
 import Header from "../Components/Header";
 import QuestionCard from "../Components/QuestionCard";
-import { data } from "../data";
 import "../Components/Choices/style.css";
 import ProgressBar from "../Components/ProgressBar";
+import { useEffect, useState } from "react";
+import axiosInstance from "../helpers/axios";
+import moment from "moment";
+import ChoicesCard from "../Components/Choices/ChoicesCard";
 
-export default function ResultPage({ choice, setChoice, results, setResults }) {
+export default function ResultPage() {
   const { id } = useParams();
+  const [results, setResults] = useState();
 
-  const result = data.Questions.filter((question, index) => {
-    return question._id === id;
-  });
-  console.log(
-    Object.entries(JSON.parse(localStorage.getItem("vote-result"))).map(
-      ([key, val]) => {
-        return (
-          <p key={key}>
-            {key}: {val}
-          </p>
-        );
-      }
-    )
-  );
+  console.log(id);
+  useEffect(() => {
+    axiosInstance
+      .get(`/vote/${id}`)
+      .then((res) => {
+        console.log("result", res.data.items);
+        setResults(res.data.items);
+        console.log("tot", results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    <>
+    <div className="result">
       <Header />
-      {result.map((question) => (
-        <div key={question._id}>
+      {results ? (
+        <div>
           <QuestionCard
-            endVote={question.endVote}
-            title={question.title}
-            imgSrc={question.imgSrc}
-            componay={question.company}
+            question={results.question}
+            end_at={moment(results.end_at).format("LLL")}
+            company={results.company}
+            companyImg="/images/company.png"
           />
-        </div>
-      ))}
-      <h5 className="title">المرشحين</h5>
-      <div className="choices">
-        {Object.entries(JSON.parse(localStorage.getItem("vote-result"))).map(
-          ([key, val]) => {
-            return (
-              <>
+
+          <h5 className="title">المرشحين</h5>
+          <h2>
+            {results.candidates.map((can) => (
+              <div key={can.id} className="choices">
                 <ChoicesCard
-                  className="choices-card card"
-                  name={key}
-                  src="/images/employee1.png"
+                  className="choices-card"
+                  src={can.photo}
                   progress={
-                    <ProgressBar bgcolor="blue" progress={val * 3} height={5} />
+                    <ProgressBar
+                      bgcolor="blue"
+                      progress={can.vote_precentage}
+                      height={5}
+                    />
                   }
-                  per={`%`}
-                  RateVote={val * 3}
-                  voteNumber={`${val} صوت`}
+                  voteNumber={can.total_votes}
+                  RateVote={can.vote_precentage}
+                  name={can.name}
                 />
-              </>
-            );
-          }
-        )}
-      </div>
-    </>
+              </div>
+            ))}
+          </h2>
+        </div>
+      ) : (
+        <div>Loading... </div>
+      )}
+    </div>
   );
 }
