@@ -10,7 +10,7 @@ export default function QuestionCard({
   numberTitle,
 }) {
   return (
-    <>
+    <div>
       <div className="question-container" style={{ height: "121px" }}>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <img src="/images/calender.png" alt="" />
@@ -39,6 +39,6 @@ export default function QuestionCard({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
