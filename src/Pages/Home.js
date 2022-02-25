@@ -5,21 +5,8 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import moment from "moment";
 
-export default function Home({ questions }) {
+export default function Home({ questions, vote, setChoice }) {
   const [isActive, setActive] = useState(null);
-  const [choice, setChoice] = useState("");
-  const [results, setResults] = useState({});
-
-  const vote = () => {
-    if (!localStorage.getItem("vote-result")) {
-      localStorage.setItem("vote-result", JSON.stringify({}));
-    }
-    setResults({ ...results, [choice]: (results[choice] ?? 0) + 1 });
-  };
-
-  useEffect(() => {
-    localStorage.setItem("vote-result", JSON.stringify(results));
-  }, [results]);
 
   function setActiveElement(id) {
     setActive(id);
@@ -47,9 +34,7 @@ export default function Home({ questions }) {
           <Link to={`/vote-main/${questions[currQues].id}`}>
             <QuestionCard
               question={questions[currQues].question}
-              end_at={moment(questions[currQues].end_at).format(
-                "MMMM Do YYYY h a"
-              )}
+              end_at={moment(questions[currQues]).format("Do MMMM YYYY h a")}
               companyImg="/images/company.png"
               company={questions[currQues].company}
             />
@@ -58,14 +43,14 @@ export default function Home({ questions }) {
           <h5 className="title">المرشحين</h5>
 
           {questions[currQues].candidates.map((can) => (
-            <div className="choices">
+            <div className="choices" key={can.id}>
               <div
                 className={
                   can.id === isActive ? "choices-card active" : "choices-card"
                 }
                 onClick={() => {
                   setActiveElement(can.id);
-                  setChoice(can.name);
+                  setChoice(can.id);
                 }}
               >
                 <img src={can.photo} alt="" />
