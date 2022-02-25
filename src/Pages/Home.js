@@ -15,8 +15,6 @@ export default function Home({ questions, vote, setChoice }) {
   const [candidates, setCandidates] = useState();
   const [currQues, setCurrQues] = useState(0);
 
-  // console.log(questions);
-
   useEffect(() => {
     setCandidates(questions && handleShuffle([questions[currQues]]));
   }, [questions, currQues]);
