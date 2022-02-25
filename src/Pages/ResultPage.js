@@ -12,14 +12,11 @@ export default function ResultPage() {
   const { id } = useParams();
   const [results, setResults] = useState();
 
-  console.log(id);
   useEffect(() => {
     axiosInstance
       .get(`/vote/${id}`)
       .then((res) => {
-        console.log("result", res.data.items);
         setResults(res.data.items);
-        console.log("tot", results);
       })
       .catch((err) => {
         console.log(err);
@@ -39,7 +36,7 @@ export default function ResultPage() {
           />
 
           <h5 className="title">المرشحين</h5>
-          <h2>
+          <>
             {results.candidates.map((can) => (
               <div key={can.id} className="choices">
                 <ChoicesCard
@@ -58,7 +55,7 @@ export default function ResultPage() {
                 />
               </div>
             ))}
-          </h2>
+          </>
         </div>
       ) : (
         <div>Loading... </div>
