@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
-import QrCode from "./Pages/QrCode";
 import { useState, useEffect } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
@@ -26,11 +25,17 @@ function App() {
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
 
+  // console.log(questions.map((uiy) => uiy.id));
+
   useEffect(() => {
     axiosInstance
-      .post("/vote", { mac_address: macAddress, vote_id: choice })
+      .post("/vote", {
+        mac_address: macAddress,
+        vote_id: choice,
+        question_id: 1,
+      })
       .then((res) => {
-        // console.log("R", res.config);
+        console.log("R", res.config);
       })
       .catch((err) => {
         console.log(err);
@@ -70,7 +75,6 @@ function App() {
             element={<VoteMain questions={questions} />}
           />
           <Route path="/vote-main/:id" element={<ResultPage />} />
-          <Route path="/qr-code" element={<QrCode text="ola" />} />
           <Route
             path="/"
             element={
