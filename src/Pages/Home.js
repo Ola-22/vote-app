@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import moment from "moment";
 
-export default function Home({ questions, vote, setChoice }) {
+export default function Home({ questions, vote, setChoice, setQuestionId }) {
   const [isActive, setActive] = useState(null);
 
   function setActiveElement(id) {
@@ -49,6 +49,7 @@ export default function Home({ questions, vote, setChoice }) {
                 onClick={() => {
                   setActiveElement(can.id);
                   setChoice(can.id);
+                  setQuestionId(questions[currQues].id);
                 }}
               >
                 <img src={can.photo} alt="" />

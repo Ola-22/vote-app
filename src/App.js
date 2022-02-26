@@ -10,6 +10,7 @@ import "./styles/main.css";
 function App() {
   const [choice, setChoice] = useState("");
   const [results, setResults] = useState({});
+  const [questionId, setQuestionId] = useState();
 
   const vote = () => {
     if (!localStorage.getItem("vote-result")) {
@@ -25,14 +26,12 @@ function App() {
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
 
-  // console.log(questions.map((uiy) => uiy.id));
-
   useEffect(() => {
     axiosInstance
       .post("/vote", {
         mac_address: macAddress,
         vote_id: choice,
-        question_id: 1,
+        question_id: questionId,
       })
       .then((res) => {
         console.log("R", res.config);
@@ -44,10 +43,9 @@ function App() {
 
   useEffect(() => {
     axiosInstance
-      .post("/votes", { page_number: 1, page_size: 10, vote_id: choice })
+      .post("/votes", { page_number: 1, page_size: 10 })
       .then((res) => {
         setQuestions(res.data.items.data);
-        // console.log("RES", res);
       })
       .catch((err) => {
         console.log(err);
@@ -78,7 +76,12 @@ function App() {
           <Route
             path="/"
             element={
-              <Home setChoice={setChoice} vote={vote} questions={questions} />
+              <Home
+                setQuestionId={setQuestionId}
+                setChoice={setChoice}
+                vote={vote}
+                questions={questions}
+              />
             }
           />
         </Routes>

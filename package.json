@@ -2,12 +2,10 @@
   "name": "vote-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ola-22.github.io/vote-app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "address": "^1.1.2",
     "axios": "^0.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
