@@ -8,7 +8,18 @@ import axiosInstance from "../helpers/axios";
 import moment from "moment";
 import ChoicesCard from "../Components/Choices/ChoicesCard";
 
-export default function ResultPage() {
+export default function ResultPage({
+  setChoice,
+  show,
+  setQuestionId,
+  showButton,
+  setShowButton,
+  vote,
+  setActiveElement,
+  isActive,
+  activeText,
+  setActiveText,
+}) {
   const { id } = useParams();
   const [results, setResults] = useState();
 
@@ -21,7 +32,7 @@ export default function ResultPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="result">
@@ -34,13 +45,15 @@ export default function ResultPage() {
             company={results.company}
             companyImg="/images/company.png"
           />
-
           <h5 className="title">المرشحين</h5>
           <>
             {results.candidates.map((can) => (
-              <div key={can.id} className="choices">
+              <div
+                key={can.id}
+                className="choices"
+                onClick={() => setShowButton(true)}
+              >
                 <ChoicesCard
-                  className="choices-card"
                   src={can.photo}
                   progress={
                     <ProgressBar
@@ -52,10 +65,33 @@ export default function ResultPage() {
                   voteNumber={can.total_votes}
                   RateVote={can.vote_precentage}
                   name={can.name}
+                  className={
+                    isActive === can.id ? "choices-card active" : "choices-card"
+                  }
+                  onClick={() => {
+                    setActiveElement(can.id);
+                    setChoice(can.id);
+                    setQuestionId(results.id);
+                    setActiveText(false);
+                  }}
                 />
               </div>
             ))}
           </>
+          {showButton && (
+            <button
+              className="btn-vote"
+              onClick={() => {
+                vote();
+                show();
+              }}
+              style={{ backgroundColor: "#2e558d" }}
+            >
+              تأكيد
+            </button>
+          )}
+
+          {activeText && <div className="success">تم التصويت بنجاح</div>}
         </div>
       ) : (
         <div>Loading... </div>
