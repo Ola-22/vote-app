@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
 import { useState, useEffect } from "react";
@@ -11,6 +10,14 @@ function App() {
   const [choice, setChoice] = useState("");
   const [results, setResults] = useState({});
   const [questionId, setQuestionId] = useState();
+  const [showButton, setShowButton] = useState(false);
+  const [activeText, setActiveText] = useState(false);
+
+  const [isActive, setActive] = useState(false);
+
+  function setActiveElement(id) {
+    setActive(id);
+  }
 
   const vote = () => {
     if (!localStorage.getItem("vote-result")) {
@@ -23,6 +30,18 @@ function App() {
     localStorage.setItem("vote-result", JSON.stringify(results));
   }, [results]);
 
+  const show = () => {
+    setShowButton(!showButton);
+    setActive(null);
+    setActiveText(!activeText);
+  };
+
+  setTimeout(() => {
+    if (activeText === true) {
+      setActiveText(false);
+    }
+  }, 2000);
+
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
 
@@ -34,12 +53,13 @@ function App() {
         question_id: questionId,
       })
       .then((res) => {
-        console.log("R", res.config);
+        // console.log("R", res);
+        vote();
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [macAddress, choice]);
+  }, [macAddress, choice, questionId]);
 
   useEffect(() => {
     axiosInstance
@@ -68,19 +88,22 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
+          <Route path="/" element={<VoteMain questions={questions} />} />
           <Route
-            path="/vote-main"
-            element={<VoteMain questions={questions} />}
-          />
-          <Route path="/vote-main/:id" element={<ResultPage />} />
-          <Route
-            path="/"
+            path="/vote-main/:id"
             element={
-              <Home
-                setQuestionId={setQuestionId}
-                setChoice={setChoice}
+              <ResultPage
+                setActive={setActive}
                 vote={vote}
-                questions={questions}
+                setChoice={setChoice}
+                setShowButton={setShowButton}
+                setQuestionId={setQuestionId}
+                showButton={showButton}
+                setActiveElement={setActiveElement}
+                isActive={isActive}
+                activeText={activeText}
+                show={show}
+                setActiveText={setActiveText}
               />
             }
           />
