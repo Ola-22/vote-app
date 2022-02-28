@@ -19,6 +19,7 @@ export default function ResultPage({
   isActive,
   activeText,
   setActiveText,
+  postData,
 }) {
   const { id } = useParams();
   const [results, setResults] = useState();
@@ -84,6 +85,7 @@ export default function ResultPage({
               onClick={() => {
                 vote();
                 show();
+                postData();
               }}
               style={{ backgroundColor: "#2e558d" }}
             >
