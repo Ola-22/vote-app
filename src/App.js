@@ -45,21 +45,32 @@ function App() {
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
 
-  useEffect(() => {
+  function postData() {
+    const data = {
+      mac_address: macAddress,
+      vote_id: choice,
+      question_id: questionId,
+    };
     axiosInstance
-      .post("/vote", {
-        mac_address: macAddress,
-        vote_id: choice,
-        question_id: questionId,
-      })
-      .then((res) => {
-        // console.log("R", res);
-        vote();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [macAddress, choice, questionId]);
+      .post("/vote", data)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }
+  // useEffect(() => {
+  //   axiosInstance
+  //     .post("/vote", {
+  //       mac_address: macAddress,
+  //       vote_id: choice,
+  //       question_id: questionId,
+  //     })
+  //     .then((res) => {
+  //       vote();
+  //       console.log("R", res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [macAddress, choice, questionId]);
 
   useEffect(() => {
     axiosInstance
@@ -104,6 +115,7 @@ function App() {
                 activeText={activeText}
                 show={show}
                 setActiveText={setActiveText}
+                postData={postData}
               />
             }
           />
