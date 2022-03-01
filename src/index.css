@@ -55,3 +55,7 @@ li{
 .result .choices .choices-card{
   justify-content: space-around;
 }
+
+.disabled{
+  opacity: 0.8;
+}

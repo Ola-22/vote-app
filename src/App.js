@@ -5,19 +5,23 @@ import ResultPage from "./Pages/ResultPage";
 import { useState, useEffect } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
-import Modal from "./Components/Modal";
 
 function App() {
-  const [choice, setChoice] = useState("");
+  const [choice, setChoice] = useState([]);
   const [results, setResults] = useState({});
   const [questionId, setQuestionId] = useState();
   const [showButton, setShowButton] = useState(false);
   const [message, setMessage] = useState();
   const [showModal, setShowModal] = useState(false);
   const [isActive, setActive] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [questions, setQuestions] = useState();
+  const [macAddress, setMacAddress] = useState(null);
 
   const openModal = () => {
-    setShowModal((prev) => !prev);
+    setTimeout(() => {
+      setShowModal((prev) => !prev);
+    }, 2000);
   };
 
   function setActiveElement(id) {
@@ -29,6 +33,7 @@ function App() {
       localStorage.setItem("vote-result", JSON.stringify({}));
     }
     setResults({ ...results, [choice]: (results[choice] ?? 0) + 1 });
+    console.log("R3", results[choice] ?? 0);
   };
 
   useEffect(() => {
@@ -41,38 +46,24 @@ function App() {
     setMessage(false);
   };
 
-  // setTimeout(() => {
-  //   if (activeText === true) {
-  //     setActiveText(false);
-  //   }
-  // }, 2000);
-
-  const [questions, setQuestions] = useState();
-  const [macAddress, setMacAddress] = useState(null);
-
   async function postData() {
     const data = {
       mac_address: macAddress,
-      candidate_id: choice,
+      candidate_id: Object.keys(results),
       vote_id: questionId,
     };
+    setLoading(true);
+
     await axiosInstance
       .post("/vote", data)
       .then((res) => {
-        // console.log(res.data.status);
-        // if (
-        //   res.data.status === false
-        //   // ||
-        //   // data.vote_id === res.data.items.vote.question
-        // if(vote)
-        // console.log(res.data.items.vote);
-        // ) {
         setMessage(res.data);
-        // console.log(res);
-        console.log(message);
-        // document.write(res.data.message);
-        // } else {
-        // }
+        console.log(res);
+        console.log(new Set(Object.keys(results)));
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
       })
       .catch((err) => console.log(err));
   }
@@ -124,6 +115,7 @@ function App() {
                 openModal={openModal}
                 showModal={showModal}
                 setShowModal={setShowModal}
+                isLoading={isLoading}
               />
             }
           />
