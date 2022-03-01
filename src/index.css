@@ -55,15 +55,3 @@ li{
 .result .choices .choices-card{
   justify-content: space-around;
 }
-
-.success{
-  width: 334px;
-  height: 42px;
-  background-color: green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border-radius: 10px;
-  margin-top: 2em;
-}
