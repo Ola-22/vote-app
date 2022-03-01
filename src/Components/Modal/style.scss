@@ -1,0 +1,45 @@
+.background{
+    width: 375px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    bottom: 0;
+    left: 0;
+    .modal-wrapper{
+        width: 300px;
+        height: 100px;
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        border-radius: 10px;
+        .modal-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.8;
+            color: #141414;
+            font-weight: bold;  
+            transition: 1s ease-in-out;
+        }
+        .close-btn{
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 20px;
+            width: 22px;
+            height: 32px;
+            padding: 0;
+            z-index: 10;
+        }
+    }
+}
