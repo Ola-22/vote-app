@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../helpers/axios";
 import moment from "moment";
 import ChoicesCard from "../Components/Choices/ChoicesCard";
+import Modal from "../Components/Modal";
 
 export default function ResultPage({
   setChoice,
@@ -17,9 +18,12 @@ export default function ResultPage({
   vote,
   setActiveElement,
   isActive,
-  activeText,
-  setActiveText,
+  openModal,
   postData,
+  message,
+  setMessage,
+  setShowModal,
+  showModal,
 }) {
   const { id } = useParams();
   const [results, setResults] = useState();
@@ -73,7 +77,7 @@ export default function ResultPage({
                     setActiveElement(can.id);
                     setChoice(can.id);
                     setQuestionId(results.id);
-                    setActiveText(false);
+                    setMessage(false);
                   }}
                 />
               </div>
@@ -86,6 +90,7 @@ export default function ResultPage({
                 vote();
                 show();
                 postData();
+                openModal();
               }}
               style={{ backgroundColor: "#2e558d" }}
             >
@@ -93,7 +98,21 @@ export default function ResultPage({
             </button>
           )}
 
-          {activeText && <div className="success">تم التصويت بنجاح</div>}
+          {message?.status === true && (
+            <Modal
+              message={message}
+              showModal={showModal}
+              setShowModal={setShowModal}
+            />
+          )}
+
+          {message?.status === false && (
+            <Modal
+              message={message}
+              showModal={showModal}
+              setShowModal={setShowModal}
+            />
+          )}
         </div>
       ) : (
         <div>Loading... </div>

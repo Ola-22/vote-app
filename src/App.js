@@ -5,15 +5,20 @@ import ResultPage from "./Pages/ResultPage";
 import { useState, useEffect } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
+import Modal from "./Components/Modal";
 
 function App() {
   const [choice, setChoice] = useState("");
   const [results, setResults] = useState({});
   const [questionId, setQuestionId] = useState();
   const [showButton, setShowButton] = useState(false);
-  const [activeText, setActiveText] = useState(false);
-
+  const [message, setMessage] = useState();
+  const [showModal, setShowModal] = useState(false);
   const [isActive, setActive] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   function setActiveElement(id) {
     setActive(id);
@@ -33,44 +38,44 @@ function App() {
   const show = () => {
     setShowButton(!showButton);
     setActive(null);
-    setActiveText(!activeText);
+    setMessage(false);
   };
 
-  setTimeout(() => {
-    if (activeText === true) {
-      setActiveText(false);
-    }
-  }, 2000);
+  // setTimeout(() => {
+  //   if (activeText === true) {
+  //     setActiveText(false);
+  //   }
+  // }, 2000);
 
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
 
-  function postData() {
+  async function postData() {
     const data = {
       mac_address: macAddress,
-      vote_id: choice,
-      question_id: questionId,
+      candidate_id: choice,
+      vote_id: questionId,
     };
-    axiosInstance
+    await axiosInstance
       .post("/vote", data)
-      .then((data) => console.log(data))
+      .then((res) => {
+        // console.log(res.data.status);
+        // if (
+        //   res.data.status === false
+        //   // ||
+        //   // data.vote_id === res.data.items.vote.question
+        // if(vote)
+        // console.log(res.data.items.vote);
+        // ) {
+        setMessage(res.data);
+        // console.log(res);
+        console.log(message);
+        // document.write(res.data.message);
+        // } else {
+        // }
+      })
       .catch((err) => console.log(err));
   }
-  // useEffect(() => {
-  //   axiosInstance
-  //     .post("/vote", {
-  //       mac_address: macAddress,
-  //       vote_id: choice,
-  //       question_id: questionId,
-  //     })
-  //     .then((res) => {
-  //       vote();
-  //       console.log("R", res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [macAddress, choice, questionId]);
 
   useEffect(() => {
     axiosInstance
@@ -112,10 +117,13 @@ function App() {
                 showButton={showButton}
                 setActiveElement={setActiveElement}
                 isActive={isActive}
-                activeText={activeText}
                 show={show}
-                setActiveText={setActiveText}
                 postData={postData}
+                message={message}
+                setMessage={setMessage}
+                openModal={openModal}
+                showModal={showModal}
+                setShowModal={setShowModal}
               />
             }
           />
