@@ -11,7 +11,6 @@ import Modal from "../Components/Modal";
 import { FaSpinner } from "react-icons/fa";
 
 export default function ResultPage({
-  setChoice,
   show,
   setQuestionId,
   showButton,
@@ -27,15 +26,10 @@ export default function ResultPage({
   showModal,
   isLoading,
   choice,
-  questions,
 }) {
   const { slug } = useParams();
-  console.log(
-    "TTs",
-    questions.filter((qu) => qu.slug === slug)
-  );
+
   const [results, setResults] = useState();
-  console.log("TT", slug);
 
   useEffect(() => {
     axiosInstance
