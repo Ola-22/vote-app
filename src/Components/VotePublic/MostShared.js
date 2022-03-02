@@ -1,9 +1,16 @@
 import QuestionCard from "../QuestionCard";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function MostShared({ questions }) {
   const MostQue = questions.sort((a, b) => b.id - a.id);
+
+  const { slug } = useParams();
+  console.log(
+    "TTs",
+    questions?.filter((qu) => qu.slug === slug)
+  );
 
   return (
     <div>
