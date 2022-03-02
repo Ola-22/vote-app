@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
 import { useState, useEffect } from "react";
