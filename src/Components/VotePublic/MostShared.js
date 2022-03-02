@@ -1,21 +1,17 @@
 import QuestionCard from "../QuestionCard";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 export default function MostShared({ questions }) {
   const MostQue = questions.sort((a, b) => b.id - a.id);
 
-  const { slug } = useParams();
-  console.log(
-    "TTs",
-    questions?.filter((qu) => qu.slug === slug)
-  );
+  const iddd = uuidv4();
 
   return (
     <div>
       {MostQue?.map((qu) => (
-        <Link to={`/vote-main/${qu.id}`} key={qu.id}>
+        <Link to={`/vote-main/${qu.id} ${iddd}`} key={qu.id}>
           <QuestionCard
             question={qu.question}
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
