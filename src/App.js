@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
 import { useState, useEffect } from "react";
@@ -8,7 +8,6 @@ import "./styles/main.css";
 
 function App() {
   const [choice, setChoice] = useState([]);
-  const [results, setResults] = useState({});
   const [questionId, setQuestionId] = useState();
   const [showButton, setShowButton] = useState(false);
   const [message, setMessage] = useState();
@@ -28,18 +27,6 @@ function App() {
     setActive(id);
   }
 
-  const vote = () => {
-    if (!localStorage.getItem("vote-result")) {
-      localStorage.setItem("vote-result", JSON.stringify({}));
-    }
-    setResults({ ...results, [choice]: (results[choice] ?? 0) + 1 });
-    console.log("R3", results[choice] ?? 0);
-  };
-
-  useEffect(() => {
-    localStorage.setItem("vote-result", JSON.stringify(results));
-  }, [results]);
-
   const show = () => {
     setShowButton(!showButton);
     setActive(null);
@@ -49,7 +36,7 @@ function App() {
   async function postData() {
     const data = {
       mac_address: macAddress,
-      candidate_id: Object.keys(results),
+      candidate_id: choice,
       vote_id: questionId,
     };
     setLoading(true);
@@ -58,9 +45,6 @@ function App() {
       .post("/vote", data)
       .then((res) => {
         setMessage(res.data);
-        console.log(res);
-        console.log(new Set(Object.keys(results)));
-
         setTimeout(() => {
           setLoading(false);
         }, 1500);
@@ -97,11 +81,11 @@ function App() {
         <Routes>
           <Route path="/" element={<VoteMain questions={questions} />} />
           <Route
-            path="/vote-main/:id"
+            path="/vote-main/:slug"
             element={
               <ResultPage
+                questions={questions}
                 setActive={setActive}
-                vote={vote}
                 setChoice={setChoice}
                 setShowButton={setShowButton}
                 setQuestionId={setQuestionId}
@@ -116,6 +100,7 @@ function App() {
                 showModal={showModal}
                 setShowModal={setShowModal}
                 isLoading={isLoading}
+                choice={choice}
               />
             }
           />
