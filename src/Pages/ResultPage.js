@@ -26,20 +26,27 @@ export default function ResultPage({
   setShowModal,
   showModal,
   isLoading,
+  choice,
+  questions,
 }) {
-  const { id } = useParams();
+  const { slug } = useParams();
+  console.log(
+    "TTs",
+    questions.filter((qu) => qu.slug === slug)
+  );
   const [results, setResults] = useState();
+  console.log("TT", slug);
 
   useEffect(() => {
     axiosInstance
-      .get(`/vote/${id}`)
+      .get(`/vote/${slug}`)
       .then((res) => {
         setResults(res.data.items);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [slug]);
 
   return (
     <div className="result">
@@ -77,7 +84,7 @@ export default function ResultPage({
                   }
                   onClick={() => {
                     setActiveElement(can.id);
-                    setChoice(can.id);
+                    choice.push(can.id);
                     setQuestionId(results.id);
                     setMessage(false);
                   }}
@@ -89,7 +96,7 @@ export default function ResultPage({
             <button
               className="btn-vote"
               onClick={() => {
-                vote();
+                // vote();
                 show();
                 postData();
                 openModal();
