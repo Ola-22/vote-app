@@ -9,7 +9,7 @@ export default function NewShared({ questions }) {
   return (
     <div>
       {questions?.map((qu) => (
-        <Link to={`/vote-main/${qu.id} ${iddd}`} key={qu.id}>
+        <Link to={`/vote-main/${qu.slug} `} key={qu.id}>
           <QuestionCard
             question={qu.question}
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
