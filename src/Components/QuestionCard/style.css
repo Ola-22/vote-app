@@ -35,6 +35,7 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  background-color: #ffffff;
 }
 
 .question-container > div {
@@ -53,20 +54,30 @@
   color: #2f2f2f;
 }
 
+.question-container > div .date-vote {
+  font-size: 12px;
+  margin-right: 5px;
+}
+
 .question-container h4 {
   font-size: 16px;
   color: #2f2f2f;
+  margin-top: 5px;
 }
 
 .question-container .vote-number {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  position: relative;
 }
 
 .question-container .vote-number h6 {
   margin-right: 2em;
   font-size: 12px;
+  color: #2F2F2F;
+  font-weight: normal;
+  margin-top: 5px;
 }
 
 .question-container .vote-number h5 {
@@ -74,7 +85,21 @@
   opacity: 0.6;
 }
 
-.question-container .background {
+.question-container .background-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.question-container .background-container p {
   width: 28px;
   height: 28px;
   position: absolute;

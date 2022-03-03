@@ -14,6 +14,7 @@
     @extend .flexBox;
     margin-bottom: 10px;
     justify-content: flex-start;
+    background-color: $whiteColor;
     .active{
       border: 2px solid $blueColor;
     }

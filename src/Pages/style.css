@@ -9,6 +9,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 1em;
+  padding-top: 10px;
 }
 
 .headerPage button {
@@ -21,12 +22,12 @@
   cursor: pointer;
 }
 
-.headerPage .logoHeader {
-  margin-left: 4.5em;
-}
-
 .result .choices-card {
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.result .background-page {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

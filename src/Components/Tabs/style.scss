@@ -12,6 +12,7 @@
     justify-content: center;
     border-radius: 10px;
     cursor: pointer;
+    background-color: $whiteColor;
 
     &.activeSelect{
       color: $whiteColor;

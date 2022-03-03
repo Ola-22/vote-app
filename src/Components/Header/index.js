@@ -10,8 +10,9 @@ export default function Header() {
           <img src="/images/vote.png" alt="" />
         </button>
       </Link>
-      <Link to="/">
-        <img src="/images/logo.png" alt="" />
+      <Link to="/" className="logo-container">
+        <img className="logoHeader" src="/images/logo.png" alt="" />
+        <img src="/images/qvote.png" alt="" />
       </Link>
     </div>
   );

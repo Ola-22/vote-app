@@ -6,8 +6,12 @@
 
 .App{
   width: 375px;
-  margin-top: 10px;
   direction: rtl;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #EBEBEB;
 }
 
 .title{
@@ -58,4 +62,16 @@ li{
 
 .disabled{
   opacity: 0.8;
+}
+
+
+.logo-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.logo-container .logoHeader{
+  margin-left: 23px;
 }

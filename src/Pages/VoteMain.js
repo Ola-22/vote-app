@@ -20,8 +20,10 @@ export default function VoteMain({ questions }) {
         <button onClick={() => navigate(-1)}>
           <img src="/images/btnBack.png" alt="" />
         </button>
-        <Link to="/">
+
+        <Link to="/" className="logo-container">
           <img className="logoHeader" src="/images/logo.png" alt="" />
+          <img src="/images/qvote.png" alt="" />
         </Link>
       </div>
       <TabNav

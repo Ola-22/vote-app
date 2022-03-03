@@ -45,6 +45,7 @@ export default function ResultPage({
   return (
     <div className="result">
       <Header />
+
       {results ? (
         <div>
           <QuestionCard
@@ -65,7 +66,7 @@ export default function ResultPage({
                   src={can.photo}
                   progress={
                     <ProgressBar
-                      bgcolor="blue"
+                      bgcolor="#80B3F5"
                       progress={can.vote_precentage}
                       height={5}
                     />

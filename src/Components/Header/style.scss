@@ -3,7 +3,8 @@
 
 .header{
   @extend .flexBox;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-top: 5px;
   & button{
     background-color: $redColor;
     width: 139px;
