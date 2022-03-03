@@ -5,7 +5,7 @@
 }
 
 .App{
-  width: 375px;
+  /* width: 375px; */
   direction: rtl;
   height: 100vh;
   display: flex;
