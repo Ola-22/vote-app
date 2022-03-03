@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1em;
+  padding-top: 10px;
 
   & button{
     width: 39px;
@@ -13,14 +14,24 @@
     cursor: pointer;
   }
 
-  .logoHeader{
-    margin-left: 4.5em;
-  }
+  // .logo-container{
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-items: center;
+  //   flex-wrap: wrap;
+  //   .logoHeader{
+  //     margin-left: 23px;
+  //   }
+  // }
 }
 
 
 .result{
   .choices-card{
     justify-content: space-around;
+  }
+
+  .background-page{
+    display: none;
   }
 }
