@@ -1,12 +1,9 @@
 import QuestionCard from "../QuestionCard";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 
 export default function MostShared({ questions }) {
   const MostQue = questions.sort((a, b) => b.id - a.id);
-
-  const iddd = uuidv4();
 
   return (
     <div>

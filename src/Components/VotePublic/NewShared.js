@@ -1,11 +1,8 @@
 import QuestionCard from "../QuestionCard";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 
 export default function NewShared({ questions }) {
-  const iddd = uuidv4();
-
   return (
     <div>
       {questions?.map((qu) => (
