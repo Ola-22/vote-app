@@ -3,7 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 export default function MostShared({ questions }) {
-  const MostQue = questions.sort((a, b) => b.id - a.id);
+  const MostQue = questions.filter((qu) => qu.type === "public");
 
   return (
     <div>
@@ -20,6 +20,7 @@ export default function MostShared({ questions }) {
                 .reduce((a, b) => a + b)
               // .sort((a, b) => b - a)
             }
+            voteContent="صوت"
           />
         </Link>
       )).sort((a, b) => b.ii - a.ii)}

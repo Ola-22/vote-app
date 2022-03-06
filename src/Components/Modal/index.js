@@ -1,8 +1,19 @@
 import React, { useRef } from "react";
 import "./style.css";
 import { MdClose } from "react-icons/md";
+import { FaSpinner } from "react-icons/fa";
 
-export default function Modal({ showModal, setShowModal, message, className }) {
+export default function Modal({
+  postData,
+  showModal,
+  setShowModal,
+  message,
+  className,
+  setInput,
+  Input,
+  isLoading,
+  handleClick,
+}) {
   const modalRef = useRef();
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
@@ -16,7 +27,39 @@ export default function Modal({ showModal, setShowModal, message, className }) {
         <div className="background" onClick={closeModal} ref={modalRef}>
           <div className="modal-wrapper">
             <div className="modal-content">
-              <div className={className}>{message?.message}</div>
+              <input
+                type="tel"
+                placeholder="Enter your phone"
+                onChange={(e) => setInput(e.target.value)}
+              />
+              {!isLoading && (
+                <button
+                  onClick={() => {
+                    handleClick();
+
+                    postData();
+                  }}
+                  style={{ backgroundColor: "#2e558d" }}
+                >
+                  تأكيد
+                </button>
+              )}
+
+              {isLoading && (
+                <button
+                  disabled
+                  onClick={() => {
+                    handleClick();
+                    postData();
+                  }}
+                  style={{ backgroundColor: "#2e558d" }}
+                >
+                  <FaSpinner icon="spinner" />
+                  ارسال
+                </button>
+              )}
+              {message?.status === true && <h6>{message?.message}</h6>}
+              {message?.status === false && <h6>{message?.message}</h6>}
             </div>
             <MdClose
               className="close-btn"

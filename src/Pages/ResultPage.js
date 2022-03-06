@@ -26,6 +26,7 @@ export default function ResultPage({
   showModal,
   isLoading,
   choice,
+  handleClick,
 }) {
   const { slug } = useParams();
 
@@ -91,9 +92,8 @@ export default function ResultPage({
             <button
               className="btn-vote"
               onClick={() => {
-                // vote();
                 show();
-                postData();
+                handleClick();
                 openModal();
               }}
               style={{ backgroundColor: "#2e558d" }}
@@ -107,9 +107,8 @@ export default function ResultPage({
               disabled
               className="btn-vote disabled"
               onClick={() => {
-                vote();
                 show();
-                postData();
+                handleClick();
                 openModal();
               }}
               style={{ backgroundColor: "#2e558d" }}
@@ -117,22 +116,6 @@ export default function ResultPage({
               <FaSpinner icon="spinner" />
               تأكيد
             </button>
-          )}
-
-          {message?.status === true && (
-            <Modal
-              message={message}
-              showModal={showModal}
-              setShowModal={setShowModal}
-            />
-          )}
-
-          {message?.status === false && (
-            <Modal
-              message={message}
-              showModal={showModal}
-              setShowModal={setShowModal}
-            />
           )}
         </div>
       ) : (

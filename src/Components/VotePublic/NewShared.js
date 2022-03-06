@@ -3,9 +3,10 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 export default function NewShared({ questions }) {
+  const NewQue = questions.filter((qu) => qu.type === "public");
   return (
     <div>
-      {questions?.map((qu) => (
+      {NewQue?.map((qu) => (
         <Link to={`/vote-main/${qu.slug} `} key={qu.id}>
           <QuestionCard
             question={qu.question}
@@ -15,6 +16,7 @@ export default function NewShared({ questions }) {
             numberVote={qu?.candidates
               .map((can) => can.total_votes)
               .reduce((a, b) => a + b)}
+            voteContent="صوت"
           />
         </Link>
       ))}
