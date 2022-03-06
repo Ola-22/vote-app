@@ -8,6 +8,7 @@ export default function QuestionCard({
   img,
   companyImg,
   numberTitle,
+  voteContent,
 }) {
   return (
     <div>
@@ -38,7 +39,9 @@ export default function QuestionCard({
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <h6>{numberTitle}</h6>
-            <h5>{numberVote}</h5>
+            <h5>
+              {numberVote} {voteContent}
+            </h5>
           </div>
         </div>
       </div>
