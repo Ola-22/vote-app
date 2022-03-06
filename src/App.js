@@ -5,6 +5,7 @@ import ResultPage from "./Pages/ResultPage";
 import { useState, useEffect } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
+import Modal from "./Components/Modal";
 
 function App() {
   const [choice, setChoice] = useState([]);
@@ -16,6 +17,7 @@ function App() {
   const [isLoading, setLoading] = useState(false);
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
+  const [Input, setInput] = useState("");
 
   const openModal = () => {
     setTimeout(() => {
@@ -33,11 +35,19 @@ function App() {
     setMessage(false);
   };
 
+  function handleClick() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }
+
   async function postData() {
     const data = {
       mac_address: macAddress,
       candidate_id: choice,
       vote_id: questionId,
+      phone: Input,
     };
     setLoading(true);
 
@@ -45,6 +55,7 @@ function App() {
       .post("/vote", data)
       .then((res) => {
         setMessage(res.data);
+
         setTimeout(() => {
           setLoading(false);
         }, 1500);
@@ -57,6 +68,7 @@ function App() {
       .post("/votes", { page_number: 1, page_size: 10 })
       .then((res) => {
         setQuestions(res.data.items.data);
+        // console.log(questions);
       })
       .catch((err) => {
         console.log(err);
@@ -101,10 +113,22 @@ function App() {
                 setShowModal={setShowModal}
                 isLoading={isLoading}
                 choice={choice}
+                handleClick={handleClick}
               />
             }
           />
+          {/* {showModal && <Modal } */}
         </Routes>
+        <Modal
+          postData={postData}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          Input={Input}
+          setInput={setInput}
+          message={message}
+          isLoading={isLoading}
+          handleClick={handleClick}
+        />
       </div>
     </BrowserRouter>
   );
