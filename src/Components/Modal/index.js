@@ -3,6 +3,7 @@ import "./style.css";
 import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Modal({
   postData,
@@ -14,6 +15,13 @@ export default function Modal({
   handleClick,
 }) {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    message?.status === true &&
+      setTimeout(() => {
+        navigate("/confirm-code");
+      }, 1000);
+  });
 
   const modalRef = useRef();
   const closeModal = (e) => {
@@ -61,9 +69,6 @@ export default function Modal({
               {message?.status === true && (
                 <>
                   <h6>{message?.message}</h6>;
-                  {setTimeout(() => {
-                    navigate("/confirm-code");
-                  }, 1000)}
                 </>
               )}
 
