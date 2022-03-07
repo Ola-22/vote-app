@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../helpers/axios";
 import moment from "moment";
 import ChoicesCard from "../Components/Choices/ChoicesCard";
-import Modal from "../Components/Modal";
 import { FaSpinner } from "react-icons/fa";
 
 export default function ResultPage({
