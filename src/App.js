@@ -106,7 +106,6 @@ export default function App() {
       .post("/confirm-code", data)
       .then((res) => {
         setMessageConfirm(res.data);
-        console.log("Rc", res.data);
 
         setTimeout(() => {
           setLoading(false);
@@ -126,7 +125,6 @@ export default function App() {
       .post("/send-code", data)
       .then((res) => {
         setResendCode(res.data);
-        console.log("Rcss", resendCode);
 
         setTimeout(() => {
           setLoading(false);
@@ -177,6 +175,7 @@ export default function App() {
                 sendCode={sendCode}
                 resendCode={resendCode}
                 setResendCode={setResendCode}
+                Input={Input}
               />
             }
           />
