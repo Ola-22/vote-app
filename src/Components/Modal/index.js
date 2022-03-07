@@ -19,6 +19,7 @@ export default function Modal({
   useEffect(() => {
     message?.status === true &&
       setTimeout(() => {
+        setShowModal(false);
         navigate("/confirm-code");
       }, 1000);
   });
@@ -68,7 +69,7 @@ export default function Modal({
               )}
               {message?.status === true && (
                 <>
-                  <h6>{message?.message}</h6>;
+                  <h6>{message?.message}</h6>
                 </>
               )}
 
