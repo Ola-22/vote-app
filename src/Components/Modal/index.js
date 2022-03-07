@@ -9,9 +9,7 @@ export default function Modal({
   showModal,
   setShowModal,
   message,
-  className,
   setInput,
-  Input,
   isLoading,
   handleClick,
 }) {
@@ -62,10 +60,10 @@ export default function Modal({
               )}
               {message?.status === true && (
                 <>
+                  <h6>{message?.message}</h6>;
                   {setTimeout(() => {
-                    <h6>{message?.message}</h6>;
-                  }, 1500)}
-                  {navigate("/confirm-code")}
+                    navigate("/confirm-code");
+                  }, 1000)}
                 </>
               )}
 
