@@ -53,16 +53,16 @@ export default function App() {
       vote_id: questionId,
       phone: Input,
     };
-    setLoading(true);
+    // setLoading(true);
 
     await axiosInstance
       .post("/vote", data)
       .then((res) => {
         setMessage(res.data);
 
-        setTimeout(() => {
-          setLoading(false);
-        }, 1500);
+        // setTimeout(() => {
+        //   setLoading(false);
+        // }, 1500);
       })
       .catch((err) => console.log(err));
   }
