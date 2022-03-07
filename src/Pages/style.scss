@@ -13,16 +13,6 @@
     border-radius: 10px;
     cursor: pointer;
   }
-
-  // .logo-container{
-  //   display: flex;
-  //   justify-content: space-around;
-  //   align-items: center;
-  //   flex-wrap: wrap;
-  //   .logoHeader{
-  //     margin-left: 23px;
-  //   }
-  // }
 }
 
 
@@ -33,5 +23,65 @@
 
   .background-page{
     display: none;
+  }
+}
+
+.confirm-code{
+  width: 375px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height: 60vh;
+ 
+  .code-container{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+ 
+  & h2{
+    font-size: 18px;
+    color: #0447B7;
+    margin-bottom: 10px;
+  }
+  & input{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border:1px solid #707070;
+  outline: none;
+  box-shadow: 0 12px 8px rgba(0,0,0,0.07);
+  border-radius: 5px;
+  cursor: pointer;
+  padding-inline-start: 10px;
+  height: 40px;
+  width: 261px;
+  
+  &:focus{
+    border: 1px solid #ec4e5d;
+  }
+  }
+
+  & button:first-of-type{
+    background-color: #ec4e5d;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid #E2EDFF;
+    width: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 139px;
+    height: 39px;
+    font-size: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+  }
+  .send-again{
+    border: none;
+    cursor: pointer;
+    color: #0447B7;
+    text-decoration: underline;
+  }
   }
 }
