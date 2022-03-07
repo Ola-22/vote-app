@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "./style.css";
 import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
