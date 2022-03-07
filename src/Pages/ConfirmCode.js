@@ -8,13 +8,12 @@ export default function ConfirmCode({
   confirmCode,
   messageConfirm,
   setCode,
-  phone,
-  showModal,
-  setShowModal,
+  Input,
   sendCode,
   resendCode,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalSend, setModalSend] = useState(false);
 
   return (
     <div className="confirm-code">
@@ -24,7 +23,7 @@ export default function ConfirmCode({
         <h2>التأكد من رقم هاتفك المحمول </h2>
         <p>
           أدخل كود التحقق الذي تم ارساله عبر الرسائل القصيرة على رقم الهاتف
-          {phone}
+          {Input}
         </p>
         <input
           type="text"
@@ -44,48 +43,97 @@ export default function ConfirmCode({
           className="send-again"
           onClick={() => {
             sendCode();
-            setModalOpen(true);
+            setModalSend(true);
           }}
         >
           اعادة ارسال الكود
         </button>
 
-        {modalOpen && (
-          <div className="background">
-            <div className="modal-wrapper">
-              <div className="modal-content">
-                <h6>{messageConfirm?.message}</h6>
+        {messageConfirm?.status === true && (
+          <>
+            {modalOpen && (
+              <div className="background">
+                <div className="modal-wrapper">
+                  <div className="modal-content">
+                    <h6>{messageConfirm?.message}</h6>
 
-                <MdClose
-                  className="close-btn"
-                  aria-label="Close modal"
-                  onClick={() => {
-                    setModalOpen(false);
-                  }}
-                />
+                    <MdClose
+                      className="close-btn"
+                      aria-label="Close modal"
+                      onClick={() => {
+                        setModalOpen(false);
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            )}
+          </>
         )}
-        {/* {resendCode?.status === false && <h6>{resendCode?.message}</h6>}
-        {resendCode?.status === true && <h6>{resendCode?.message}</h6>} */}
 
-        {modalOpen && (
-          <div className="background">
-            <div className="modal-wrapper">
-              <div className="modal-content">
-                <h6>{resendCode?.message}</h6>
+        {messageConfirm?.status === false && (
+          <>
+            {modalOpen && (
+              <div className="background">
+                <div className="modal-wrapper">
+                  <div className="modal-content">
+                    <h6>{messageConfirm?.message}</h6>
 
-                <MdClose
-                  className="close-btn"
-                  aria-label="Close modal"
-                  onClick={() => {
-                    setModalOpen(false);
-                  }}
-                />
+                    <MdClose
+                      className="close-btn"
+                      aria-label="Close modal"
+                      onClick={() => {
+                        setModalOpen(false);
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            )}
+          </>
+        )}
+
+        {resendCode?.status === false && (
+          <>
+            {modalSend && (
+              <div className="background">
+                <div className="modal-wrapper">
+                  <div className="modal-content">
+                    <h6>{resendCode?.message}</h6>
+
+                    <MdClose
+                      className="close-btn"
+                      aria-label="Close modal"
+                      onClick={() => {
+                        setModalSend(false);
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+        {resendCode?.status === true && (
+          <>
+            {modalSend && (
+              <div className="background">
+                <div className="modal-wrapper">
+                  <div className="modal-content">
+                    <h6>{resendCode?.message}</h6>
+
+                    <MdClose
+                      className="close-btn"
+                      aria-label="Close modal"
+                      onClick={() => {
+                        setModalSend(false);
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>
