@@ -7,7 +7,6 @@ import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
 import Modal from "./Components/Modal";
 import ConfirmCode from "./Pages/ConfirmCode";
-import InputCode from "./Components/InputCode";
 
 export default function App({ onComplete }) {
   const [choice, setChoice] = useState([]);
