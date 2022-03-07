@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./style.css";
 import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Modal({
   postData,
@@ -14,6 +15,9 @@ export default function Modal({
   isLoading,
   handleClick,
 }) {
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
   const modalRef = useRef();
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
@@ -36,8 +40,8 @@ export default function Modal({
                 <button
                   onClick={() => {
                     handleClick();
-
                     postData();
+                    setShow(!show);
                   }}
                   style={{ backgroundColor: "#2e558d" }}
                 >
@@ -58,7 +62,14 @@ export default function Modal({
                   ارسال
                 </button>
               )}
-              {message?.status === true && <h6>{message?.message}</h6>}
+              {message?.status === true && (
+                <>
+                  <h6>{message?.message}</h6>
+                  {setTimeout(() => {
+                    navigate("/confirm-code");
+                  }, 2000)}
+                </>
+              )}
               {message?.status === false && <h6>{message?.message}</h6>}
             </div>
             <MdClose
