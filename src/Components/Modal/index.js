@@ -64,12 +64,13 @@ export default function Modal({
               )}
               {message?.status === true && (
                 <>
-                  <h6>{message?.message}</h6>
                   {setTimeout(() => {
-                    navigate("/confirm-code");
-                  }, 2000)}
+                    <h6>{message?.message}</h6>;
+                  }, 1500)}
+                  {navigate("/confirm-code")}
                 </>
               )}
+
               {message?.status === false && <h6>{message?.message}</h6>}
             </div>
             <MdClose
