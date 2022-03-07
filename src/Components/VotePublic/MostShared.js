@@ -3,7 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 export default function MostShared({ questions }) {
-  const MostQue = questions.filter((qu) => qu.type === "public");
+  const MostQue = questions?.filter((qu) => qu.type === "public");
 
   return (
     <div>

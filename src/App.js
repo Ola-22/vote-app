@@ -2,12 +2,14 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
 import Modal from "./Components/Modal";
+import ConfirmCode from "./Pages/ConfirmCode";
+import InputCode from "./Components/InputCode";
 
-function App() {
+export default function App({ onComplete }) {
   const [choice, setChoice] = useState([]);
   const [questionId, setQuestionId] = useState();
   const [showButton, setShowButton] = useState(false);
@@ -18,6 +20,9 @@ function App() {
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
   const [Input, setInput] = useState("");
+  const [code, setCode] = useState("");
+  const [messageConfirm, setMessageConfirm] = useState();
+  const [resendCode, setResendCode] = useState();
 
   const openModal = () => {
     setTimeout(() => {
@@ -87,6 +92,50 @@ function App() {
     setMacAddress(newidd);
   }, [macAddress]);
 
+  console.log("R", code);
+  async function confirmCode() {
+    const data = {
+      mac_address: macAddress,
+      candidate_id: choice,
+      vote_id: questionId,
+      phone: Input,
+      code: code,
+    };
+    setLoading(true);
+
+    await axiosInstance
+      .post("/confirm-code", data)
+      .then((res) => {
+        setMessageConfirm(res.data);
+        console.log("Rc", res.data);
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  async function sendCode() {
+    const data = {
+      mac_address: macAddress,
+      phone: Input,
+    };
+    setLoading(true);
+
+    await axiosInstance
+      .post("/send-code", data)
+      .then((res) => {
+        setResendCode(res.data);
+        console.log("Rcss", resendCode);
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -117,7 +166,21 @@ function App() {
               />
             }
           />
-          {/* {showModal && <Modal } */}
+          <Route
+            path="/confirm-code"
+            element={
+              <ConfirmCode
+                setCode={setCode}
+                code={code}
+                confirmCode={confirmCode}
+                messageConfirm={messageConfirm}
+                setMessageConfirm={setMessageConfirm}
+                sendCode={sendCode}
+                resendCode={resendCode}
+                setResendCode={setResendCode}
+              />
+            }
+          />
         </Routes>
         <Modal
           postData={postData}
@@ -134,4 +197,4 @@ function App() {
   );
 }
 
-export default App;
+// export default App;

@@ -3,7 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 export default function NewShared({ questions }) {
-  const NewQue = questions.filter((qu) => qu.type === "public");
+  const NewQue = questions?.filter((qu) => qu.type === "public");
   return (
     <div>
       {NewQue?.map((qu) => (
