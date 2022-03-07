@@ -16,7 +16,6 @@ export default function Modal({
   handleClick,
 }) {
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
 
   const modalRef = useRef();
   const closeModal = (e) => {
@@ -41,7 +40,6 @@ export default function Modal({
                   onClick={() => {
                     handleClick();
                     postData();
-                    setShow(!show);
                   }}
                   style={{ backgroundColor: "#2e558d" }}
                 >
@@ -59,7 +57,7 @@ export default function Modal({
                   style={{ backgroundColor: "#2e558d" }}
                 >
                   <FaSpinner icon="spinner" />
-                  ارسال
+                  تأكيد
                 </button>
               )}
               {message?.status === true && (
