@@ -2,13 +2,13 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
 import Modal from "./Components/Modal";
 import ConfirmCode from "./Pages/ConfirmCode";
 
-export default function App({ onComplete }) {
+export default function App() {
   const [choice, setChoice] = useState([]);
   const [questionId, setQuestionId] = useState();
   const [showButton, setShowButton] = useState(false);
