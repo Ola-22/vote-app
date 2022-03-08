@@ -2,9 +2,7 @@ import Header from "../Components/Header";
 import { MdClose } from "react-icons/md";
 import "./style.css";
 import { useState } from "react";
-import { useContext } from "react";
 import InputCode from "../Components/InputCode";
-import { DataContext } from "../Components/ContextHooks/DataProvider";
 
 export default function ConfirmCode({
   confirmCode,
@@ -16,9 +14,6 @@ export default function ConfirmCode({
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const value = useContext(DataContext);
-  const [setCode] = value.code;
 
   return (
     <div className="confirm-code">
