@@ -2,18 +2,23 @@ import Header from "../Components/Header";
 import { MdClose } from "react-icons/md";
 import "./style.css";
 import { useState } from "react";
+import { useContext } from "react";
+import InputCode from "../Components/InputCode";
+import { DataContext } from "../Components/ContextHooks/DataProvider";
 
 export default function ConfirmCode({
-  code,
   confirmCode,
   messageConfirm,
-  setCode,
-  Input,
   sendCode,
   resendCode,
+  Input,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const value = useContext(DataContext);
+  const [setCode] = value.code;
 
   return (
     <div className="confirm-code">
@@ -25,12 +30,15 @@ export default function ConfirmCode({
           أدخل كود التحقق الذي تم ارساله عبر الرسائل القصيرة على رقم الهاتف
           {Input}
         </p>
-        <input
-          type="text"
-          onChange={(e) => setCode(e.target.value)}
-          placeholder="أدخل كود التحقق"
-        />
-
+        <div className="code-box">
+          <InputCode
+            loading={loading}
+            onComplete={(code) => {
+              setLoading(true);
+              setTimeout(() => setLoading(false), 10000);
+            }}
+          />
+        </div>
         <button
           onClick={() => {
             confirmCode();
