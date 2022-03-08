@@ -10,7 +10,7 @@
     
     .modal-wrapper{
         width: 300px;
-        height: 100px;
+        height: 120px;
         box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
         background: #fff;
         color: #000;
@@ -29,6 +29,24 @@
             color: #141414;
             font-weight: bold;  
             transition: 1s ease-in-out;
+       .input-phone{
+           direction: ltr;
+           margin-top: 1.5em;
+           & input{
+               width: 17em;
+           } 
+       }
+       & button{
+        background-color: #ec4e5d;
+        cursor: pointer;
+        width: 120px;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 5px;
+        color: white;
+        font-size: 18px;
+       }
         }
         .close-btn{
             cursor: pointer;
