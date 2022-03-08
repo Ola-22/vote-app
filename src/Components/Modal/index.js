@@ -3,7 +3,7 @@ import "./style.css";
 import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 
 export default function Modal({
@@ -12,11 +12,10 @@ export default function Modal({
   setShowModal,
   message,
   setInput,
-  isLoading,
-  handleClick,
   Input,
 }) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     message?.status === true &&
@@ -33,6 +32,13 @@ export default function Modal({
     }
   };
 
+  function handleClick() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }
+
   return (
     <>
       {showModal && (
@@ -42,7 +48,7 @@ export default function Modal({
               <div className="input-phone">
                 <PhoneInput country={"ps"} value={Input} onChange={setInput} />
               </div>
-              {!isLoading && (
+              {!loading && (
                 <button
                   onClick={() => {
                     handleClick();
@@ -53,7 +59,7 @@ export default function Modal({
                 </button>
               )}
 
-              {isLoading && (
+              {loading && (
                 <button
                   disabled
                   onClick={() => {
