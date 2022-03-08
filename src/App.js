@@ -2,11 +2,12 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
 import Modal from "./Components/Modal";
 import ConfirmCode from "./Pages/ConfirmCode";
+import { DataContext } from "./Components/ContextHooks/DataProvider";
 
 export default function App() {
   const [choice, setChoice] = useState([]);
@@ -19,9 +20,14 @@ export default function App() {
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
   const [Input, setInput] = useState("");
-  const [code, setCode] = useState("");
   const [messageConfirm, setMessageConfirm] = useState();
   const [resendCode, setResendCode] = useState();
+
+  console.log("T", Input);
+  const value = useContext(DataContext);
+  const [code] = value.code;
+
+  const codeInput = code.join("");
 
   const openModal = () => {
     setTimeout(() => {
@@ -72,7 +78,6 @@ export default function App() {
       .post("/votes", { page_number: 1, page_size: 10 })
       .then((res) => {
         setQuestions(res.data.items.data);
-        // console.log(questions);
       })
       .catch((err) => {
         console.log(err);
@@ -91,15 +96,15 @@ export default function App() {
     setMacAddress(newidd);
   }, [macAddress]);
 
-  console.log("R", code);
   async function confirmCode() {
     const data = {
       mac_address: macAddress,
       candidate_id: choice,
       vote_id: questionId,
       phone: Input,
-      code: code,
+      code: codeInput,
     };
+
     setLoading(true);
 
     await axiosInstance
@@ -167,8 +172,6 @@ export default function App() {
             path="/confirm-code"
             element={
               <ConfirmCode
-                setCode={setCode}
-                code={code}
                 confirmCode={confirmCode}
                 messageConfirm={messageConfirm}
                 setMessageConfirm={setMessageConfirm}
@@ -194,5 +197,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
-// export default App;

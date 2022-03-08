@@ -17,7 +17,7 @@
 
 .background .modal-wrapper {
   width: 300px;
-  height: 100px;
+  height: 120px;
   -webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -55,6 +55,27 @@
   font-weight: bold;
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
+}
+
+.background .modal-wrapper .modal-content .input-phone {
+  direction: ltr;
+  margin-top: 1.5em;
+}
+
+.background .modal-wrapper .modal-content .input-phone input {
+  width: 17em;
+}
+
+.background .modal-wrapper .modal-content button {
+  background-color: #ec4e5d;
+  cursor: pointer;
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 5px;
+  color: white;
+  font-size: 18px;
 }
 
 .background .modal-wrapper .close-btn {
