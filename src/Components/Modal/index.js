@@ -4,6 +4,7 @@ import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import PhoneInput from "react-phone-input-2";
 
 export default function Modal({
   postData,
@@ -13,6 +14,7 @@ export default function Modal({
   setInput,
   isLoading,
   handleClick,
+  Input,
 }) {
   const navigate = useNavigate();
 
@@ -37,18 +39,15 @@ export default function Modal({
         <div className="background" onClick={closeModal} ref={modalRef}>
           <div className="modal-wrapper">
             <div className="modal-content">
-              <input
-                type="tel"
-                placeholder="Enter your phone"
-                onChange={(e) => setInput(e.target.value)}
-              />
+              <div className="input-phone">
+                <PhoneInput country={"ps"} value={Input} onChange={setInput} />
+              </div>
               {!isLoading && (
                 <button
                   onClick={() => {
                     handleClick();
                     postData();
                   }}
-                  style={{ backgroundColor: "#2e558d" }}
                 >
                   تأكيد
                 </button>
@@ -61,7 +60,6 @@ export default function Modal({
                     handleClick();
                     postData();
                   }}
-                  style={{ backgroundColor: "#2e558d" }}
                 >
                   <FaSpinner icon="spinner" />
                   تأكيد
