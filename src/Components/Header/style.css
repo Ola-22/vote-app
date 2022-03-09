@@ -16,7 +16,8 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 5px;
+  padding-top: 1.5em;
+  width: 334px;
 }
 
 .header button {

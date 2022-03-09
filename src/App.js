@@ -23,7 +23,8 @@ export default function App() {
   const [messageConfirm, setMessageConfirm] = useState();
   const [resendCode, setResendCode] = useState();
 
-  console.log("T", Input);
+  const InputPhone = "974" + Input;
+
   const value = useContext(DataContext);
   const [code] = value.code;
 
@@ -57,18 +58,13 @@ export default function App() {
       mac_address: macAddress,
       candidate_id: choice,
       vote_id: questionId,
-      phone: Input,
+      phone: InputPhone,
     };
-    // setLoading(true);
 
     await axiosInstance
       .post("/vote", data)
       .then((res) => {
         setMessage(res.data);
-
-        // setTimeout(() => {
-        //   setLoading(false);
-        // }, 1500);
       })
       .catch((err) => console.log(err));
   }
@@ -101,7 +97,7 @@ export default function App() {
       mac_address: macAddress,
       candidate_id: choice,
       vote_id: questionId,
-      phone: Input,
+      phone: InputPhone,
       code: codeInput,
     };
 
@@ -122,7 +118,7 @@ export default function App() {
   async function sendCode() {
     const data = {
       mac_address: macAddress,
-      phone: Input,
+      phone: InputPhone,
     };
     setLoading(true);
 

@@ -64,13 +64,15 @@ li{
 }
 
 
+  
 .logo-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-
 }
+
+
 .logo-container .logoHeader{
-  margin-left: 23px;
+  margin-left: 2px;
 }

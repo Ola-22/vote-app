@@ -3,6 +3,7 @@ import { MdClose } from "react-icons/md";
 import "./style.css";
 import { useState } from "react";
 import InputCode from "../Components/InputCode";
+import { useNavigate } from "react-router-dom";
 
 export default function ConfirmCode({
   confirmCode,
@@ -13,8 +14,15 @@ export default function ConfirmCode({
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
-  const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+
+  function navigation() {
+    messageConfirm?.status === true &&
+      setTimeout(() => {
+        navigate(-1);
+      }, 1000);
+  }
   return (
     <div className="confirm-code">
       <Header />
@@ -26,18 +34,13 @@ export default function ConfirmCode({
           {Input}
         </p>
         <div className="code-box">
-          <InputCode
-            loading={loading}
-            onComplete={(code) => {
-              setLoading(true);
-              setTimeout(() => setLoading(false), 10000);
-            }}
-          />
+          <InputCode />
         </div>
         <button
           onClick={() => {
             confirmCode();
             setModalOpen(true);
+            navigation();
           }}
         >
           ارسال
