@@ -38,7 +38,11 @@
 }
 
 .choices .choices-card img {
-  margin-right: 1em;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .choices .choices-card > div {
