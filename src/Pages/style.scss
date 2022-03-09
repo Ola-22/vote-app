@@ -27,16 +27,22 @@
 }
 
 .confirm-code{
-  width: 375px;
+  width: 334px;
   display: flex;
   flex-direction:column;
-  justify-content: space-between;
-  height: 60vh;
+  height: 100vh;
+
+  .background .modal-wrapper{
+    height: 120px;
+  }
  
   .code-container{
     display: flex;
     flex-direction:column;
     align-items: center;
+    width: 334px;
+    position: fixed;
+    top: 30%;
 
     .code-box{
       display: flex;
@@ -48,6 +54,9 @@
     font-size: 18px;
     color: #0447B7;
     margin-bottom: 10px;
+  }
+  & p{
+    width: 300px;
   }
   & input{
 
