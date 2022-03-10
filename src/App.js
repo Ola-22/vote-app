@@ -2,12 +2,11 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import axiosInstance from "./helpers/axios";
 import "./styles/main.css";
 import Modal from "./Components/Modal";
 import ConfirmCode from "./Pages/ConfirmCode";
-import { DataContext } from "./Components/ContextHooks/DataProvider";
 
 export default function App() {
   const [choice, setChoice] = useState([]);
@@ -22,13 +21,11 @@ export default function App() {
   const [Input, setInput] = useState("");
   const [messageConfirm, setMessageConfirm] = useState();
   const [resendCode, setResendCode] = useState();
+  const [codeInput, setCodeInput] = useState("");
 
   const InputPhone = "974" + Input;
 
-  const value = useContext(DataContext);
-  const [code] = value.code;
-
-  const codeInput = code.join("");
+  console.log(codeInput);
 
   const openModal = () => {
     setTimeout(() => {
@@ -175,6 +172,7 @@ export default function App() {
                 resendCode={resendCode}
                 setResendCode={setResendCode}
                 InputPhone={InputPhone}
+                setCodeInput={setCodeInput}
               />
             }
           />

@@ -69,6 +69,25 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   direction: ltr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1em;
+}
+
+.confirm-code .code-container .code-box .css-jxah1j {
+  height: 2em;
+  width: 2em;
+  border: 1px solid #707070;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  line-height: 2em;
+}
+
+.confirm-code .code-container .code-box .ReactInputVerificationCode__container {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .confirm-code .code-container h2 {
@@ -80,25 +99,6 @@
 .confirm-code .code-container p {
   width: 330px;
   text-align: center;
-}
-
-.confirm-code .code-container input {
-  border: 1px solid #707070;
-  outline: none;
-  -webkit-box-shadow: 0 12px 8px rgba(0, 0, 0, 0.07);
-          box-shadow: 0 12px 8px rgba(0, 0, 0, 0.07);
-  border-radius: 5px;
-  cursor: pointer;
-  -webkit-padding-start: 10px;
-          padding-inline-start: 10px;
-  height: 40px;
-  width: 2em;
-  font-size: 18px;
-  margin: 10px 0 10px 1em;
-}
-
-.confirm-code .code-container input:focus {
-  border: 1px solid #ec4e5d;
 }
 
 .confirm-code .code-container button:first-of-type {
