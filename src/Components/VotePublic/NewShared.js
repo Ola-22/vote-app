@@ -1,9 +1,11 @@
 import QuestionCard from "../QuestionCard";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import SkeletonArticle from "../Skeletons/SkeletonArticle";
 
 export default function NewShared({ questions }) {
   const NewQue = questions?.filter((qu) => qu.type === "public");
+
   return (
     <div>
       {NewQue?.map((qu) => (
@@ -11,7 +13,7 @@ export default function NewShared({ questions }) {
           <QuestionCard
             question={qu.question}
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
-            img="/images/share.png"
+            img="/images/Group.png"
             numberTitle="عدد المصوتين"
             numberVote={qu?.candidates
               .map((can) => can.total_votes)
@@ -20,6 +22,7 @@ export default function NewShared({ questions }) {
           />
         </Link>
       ))}
+      {!NewQue && [1, 2, 3].map((n) => <SkeletonArticle key={n} />)}
     </div>
   );
 }

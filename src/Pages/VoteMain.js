@@ -22,8 +22,7 @@ export default function VoteMain({ questions }) {
         </button>
 
         <Link to="/" className="logo-container">
-          <img className="logoHeader" src="/images/logo.png" alt="" />
-          <img src="/images/qvote.png" alt="" />
+          <img src="/images/LogoQ.png" alt="" />
         </Link>
       </div>
       <TabNav

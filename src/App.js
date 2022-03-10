@@ -22,10 +22,9 @@ export default function App() {
   const [messageConfirm, setMessageConfirm] = useState();
   const [resendCode, setResendCode] = useState();
   const [codeInput, setCodeInput] = useState("");
+  const [name, setName] = useState("");
 
   const InputPhone = "974" + Input;
-
-  console.log(codeInput);
 
   const openModal = () => {
     setTimeout(() => {
@@ -56,6 +55,7 @@ export default function App() {
       candidate_id: choice,
       vote_id: questionId,
       phone: InputPhone,
+      name: name,
     };
 
     await axiosInstance
@@ -186,6 +186,7 @@ export default function App() {
           message={message}
           isLoading={isLoading}
           handleClick={handleClick}
+          setName={setName}
         />
       </div>
     </BrowserRouter>

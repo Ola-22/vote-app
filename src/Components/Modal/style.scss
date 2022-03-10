@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .background{
     width: 100%;
     height: 100%;
@@ -10,7 +12,7 @@
     
     .modal-wrapper{
         width: 300px;
-        height: 200px;
+        height: 280px;
         box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
         background: #fff;
         color: #000;
@@ -30,8 +32,27 @@
             font-weight: bold;  
             transition: 1s ease-in-out;
 
+            & h4{
+                font-size: 14px;
+            }
+
+            .name-container{
+                display: flex;
+                flex-direction: column;
+            }
+
             & label{
             align-self: flex-start;
+            }
+
+            & input[type= text]{
+                border: 1px solid #EBEBEB;
+                border-radius: 5px;
+                width: 17em;
+                height: 2em;
+                font-size: 15px;
+                padding-inline-start: 1em;
+                outline: none;
             }
        .input-phone{
            direction: ltr;
@@ -65,15 +86,15 @@
            }
        }
        & button{
-        background-color: #ec4e5d;
+        background-color: $greenColor;
         cursor: pointer;
         width: 120px;
         height: 30px;
         border-radius: 10px;
         border: none;
-        margin-top: 10px;
         color: white;
         font-size: 18px;
+        margin-top: 10px;
        }
         }
         .close-btn{

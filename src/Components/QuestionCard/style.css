@@ -36,6 +36,7 @@
       -ms-flex-align: baseline;
           align-items: baseline;
   background-color: #ffffff;
+  font-family: NeoSans, serif;
 }
 
 .question-container > div {
@@ -75,7 +76,7 @@
 .question-container .vote-number h6 {
   margin-right: 2em;
   font-size: 12px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   font-weight: normal;
   margin-top: 5px;
 }
@@ -102,8 +103,14 @@
 .question-container .background-container p {
   width: 28px;
   height: 28px;
-  position: absolute;
-  background-color: rgba(46, 85, 141, 0.2);
+  background-color: #FFE3E3;
   border-radius: 50%;
+}
+
+.question-container .background-container img {
+  z-index: 2;
+  position: absolute;
+  right: -12px;
+  top: -2px;
 }
 /*# sourceMappingURL=style.css.map */

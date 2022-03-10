@@ -34,7 +34,7 @@
 }
 
 .choices .choices-card .active {
-  border: 2px solid "#2e558d";
+  border: 2px solid #2e558d;
 }
 
 .choices .choices-card img {
@@ -58,7 +58,7 @@
 .choices button {
   width: 335px;
   height: 50px;
-  background-color: "#2e558d";
+  background-color: #2e558d;
   color: #ffffff;
   -webkit-box-shadow: -3px 7px 6.5px rgba(46, 85, 141, 0.3);
           box-shadow: -3px 7px 6.5px rgba(46, 85, 141, 0.3);

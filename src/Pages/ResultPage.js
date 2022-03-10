@@ -95,7 +95,7 @@ export default function ResultPage({
                 handleClick();
                 openModal();
               }}
-              style={{ backgroundColor: "#2e558d" }}
+              style={{ backgroundColor: "#75153B" }}
             >
               تأكيد
             </button>
@@ -110,7 +110,7 @@ export default function ResultPage({
                 handleClick();
                 openModal();
               }}
-              style={{ backgroundColor: "#2e558d" }}
+              style={{ backgroundColor: "#75153B" }}
             >
               <FaSpinner icon="spinner" />
               تأكيد
