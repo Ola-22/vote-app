@@ -10,7 +10,7 @@ export default function ConfirmCode({
   messageConfirm,
   sendCode,
   resendCode,
-  Input,
+  InputPhone,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
@@ -31,7 +31,7 @@ export default function ConfirmCode({
         <h2>التأكد من رقم هاتفك المحمول </h2>
         <p>
           أدخل كود التحقق الذي تم ارساله عبر الرسائل القصيرة على رقم الهاتف
-          {Input}
+          {InputPhone}
         </p>
         <div className="code-box">
           <InputCode />
