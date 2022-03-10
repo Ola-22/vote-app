@@ -4,13 +4,19 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'NeoSans';
+  src: url("/public/fonts/NeoSansArabicLight.ttf");
+}
+
 .App{
+  font-family: NeoSans, serif;
   direction: rtl;
   height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: #EBEBEB;
+  background: #F2F2F8;
 }
 
 .title{
@@ -22,7 +28,7 @@
 }
 
 .active{
-  border: 2px solid #2e558d;
+  border: 2px solid #2A4E82;
 }
 
 a{
@@ -45,7 +51,7 @@ li{
 .btn-vote{
   width: 335px;
   height: 50px;
-  background-color: rgb(46, 85, 141);
+  background-color: #75153B;
   color: white;
   box-shadow: -3px 7px 6.5px rgba(46,85,141,0.30);
   border: none;
