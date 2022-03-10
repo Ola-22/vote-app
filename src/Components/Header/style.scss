@@ -5,9 +5,9 @@
   @extend .flexBox;
   justify-content: space-between;
   padding-top: 1.5em;
-  width: 334px;
+  // width: 334px;
   & button{
-    background-color: $redColor;
+    background-color: $greenColor;
     width: 139px;
     height: 39px;
     box-shadow: -3px 7px 6.5px rgba(0,0,0,0.05);
