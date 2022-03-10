@@ -12,6 +12,7 @@ export default function Modal({
   message,
   setInput,
   Input,
+  setName,
 }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ export default function Modal({
         setShowModal(false);
         navigate("/confirm-code");
       }, 1000);
-  });
+  }, []);
 
   const modalRef = useRef();
   const closeModal = (e) => {
@@ -52,23 +53,39 @@ export default function Modal({
         <div className="background" onClick={closeModal} ref={modalRef}>
           <div className="modal-wrapper">
             <div className="modal-content">
-              <label htmlFor="phone">أدخل رقم الهاتف:</label>
-
-              <div className="input-phone">
-                <div className="logo-qatar">
-                  <img src="/images/Qatar.jpg" width="15" height="15" alt="" />
-                </div>
-                <h6>974</h6>
+              <div className="name-container">
+                <label htmlFor="name"> الاسم:</label>
                 <input
-                  name="phone"
-                  className="phone-input"
-                  type="tel"
-                  maxLength="8"
-                  onChange={(e) => setInput(e.target.value)}
-                  required
-                  pattern=""
+                  type="text"
+                  placeholder="ادخل الاسم"
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
+
+              <div>
+                <label htmlFor="phone"> رقم الهاتف:</label>{" "}
+                <div className="input-phone">
+                  <div className="logo-qatar">
+                    <img
+                      src="/images/Qatar.jpg"
+                      width="15"
+                      height="15"
+                      alt=""
+                    />
+                  </div>
+                  <h6>974</h6>
+                  <input
+                    name="phone"
+                    className="phone-input"
+                    type="tel"
+                    maxLength="8"
+                    onChange={(e) => setInput(e.target.value)}
+                    required
+                    pattern=""
+                  />
+                </div>
+              </div>
+
               {!loading && (
                 <button
                   onClick={() => {
@@ -94,7 +111,7 @@ export default function Modal({
                   تأكيد
                 </button>
               )}
-              {error && <div className="error">رقم الهاتف غير صحيح</div>}
+              {error && <h4 className="error">رقم الهاتف غير صحيح</h4>}
 
               {message?.status === true && (
                 <>
@@ -102,7 +119,11 @@ export default function Modal({
                 </>
               )}
 
-              {Input.length === 8 && <h6>{message?.message}</h6>}
+              {message?.status === false && (
+                <>
+                  <h6>{message?.message}</h6>
+                </>
+              )}
             </div>
             <MdClose
               className="close-btn"
