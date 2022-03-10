@@ -29,6 +29,10 @@
             color: #141414;
             font-weight: bold;  
             transition: 1s ease-in-out;
+
+            & label{
+            align-self: flex-start;
+            }
        .input-phone{
            direction: ltr;
            display: flex;

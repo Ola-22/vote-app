@@ -174,7 +174,7 @@ export default function App() {
                 sendCode={sendCode}
                 resendCode={resendCode}
                 setResendCode={setResendCode}
-                Input={Input}
+                InputPhone={InputPhone}
               />
             }
           />
