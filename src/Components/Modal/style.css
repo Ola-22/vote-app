@@ -57,6 +57,11 @@
   transition: 1s ease-in-out;
 }
 
+.background .modal-wrapper .modal-content label {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
 .background .modal-wrapper .modal-content .input-phone {
   direction: ltr;
   display: -webkit-box;
