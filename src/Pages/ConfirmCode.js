@@ -2,8 +2,8 @@ import Header from "../Components/Header";
 import { MdClose } from "react-icons/md";
 import "./style.css";
 import { useState } from "react";
-import InputCode from "../Components/InputCode";
 import { useNavigate } from "react-router-dom";
+import ReactInputVerificationCode from "react-input-verification-code";
 
 export default function ConfirmCode({
   confirmCode,
@@ -11,6 +11,7 @@ export default function ConfirmCode({
   sendCode,
   resendCode,
   InputPhone,
+  setCodeInput,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
@@ -34,7 +35,9 @@ export default function ConfirmCode({
           {InputPhone}
         </p>
         <div className="code-box">
-          <InputCode />
+          <ReactInputVerificationCode
+            onChange={(newValue) => setCodeInput(newValue)}
+          />
         </div>
         <button
           onClick={() => {
