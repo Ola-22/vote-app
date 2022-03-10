@@ -12,11 +12,13 @@
       flex-wrap: wrap;
 }
 
+.nav-tabs {
+  margin-bottom: 30px;
+}
+
 .nav-tabs .tab-link {
   width: 108px;
   height: 36px;
-  -webkit-box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
-          box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -27,6 +29,8 @@
 
 .nav-tabs .tab-link.activeSelect {
   color: #ffffff;
-  background-color: #ec4e5d;
+  background-color: #75153B;
+  -webkit-box-shadow: -3px 7px 13px #FFE3E3;
+          box-shadow: -3px 7px 13px #FFE3E3;
 }
 /*# sourceMappingURL=style.css.map */
