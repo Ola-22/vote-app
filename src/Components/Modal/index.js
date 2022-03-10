@@ -52,12 +52,15 @@ export default function Modal({
         <div className="background" onClick={closeModal} ref={modalRef}>
           <div className="modal-wrapper">
             <div className="modal-content">
+              <label htmlFor="phone">أدخل رقم الهاتف:</label>
+
               <div className="input-phone">
                 <div className="logo-qatar">
                   <img src="/images/Qatar.jpg" width="15" height="15" alt="" />
                 </div>
                 <h6>974</h6>
                 <input
+                  name="phone"
                   className="phone-input"
                   type="tel"
                   maxLength="8"
