@@ -16,8 +16,8 @@
 }
 
 .background .modal-wrapper {
-  width: 300px;
-  height: 280px;
+  width: 90%;
+  height: 35%;
   -webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -154,5 +154,18 @@
   height: 32px;
   padding: 0;
   z-index: 10;
+}
+
+.background .error {
+  font-size: 12px;
+  color: red;
+  -ms-flex-item-align: self-start;
+      -ms-grid-row-align: self-start;
+      align-self: self-start;
+  margin-right: 2em;
+}
+
+.background .borderError {
+  border: 1px solid red !important;
 }
 /*# sourceMappingURL=style.css.map */
