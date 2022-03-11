@@ -27,6 +27,10 @@
   cursor: pointer;
 }
 
+.result {
+  width: 90%;
+}
+
 .result .choices-card {
   -ms-flex-pack: distribute;
       justify-content: space-around;
@@ -44,7 +48,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  width: 90%;
 }
 
 .confirm-code .background .modal-wrapper {
@@ -64,6 +68,7 @@
           align-items: center;
   position: fixed;
   top: 30%;
+  width: 90%;
 }
 
 .confirm-code .code-container .code-box {
@@ -144,7 +149,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 335px;
+  width: 100%;
   height: 50px;
   margin-top: 58px;
   margin-bottom: 27px;
