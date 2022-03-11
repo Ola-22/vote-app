@@ -72,7 +72,7 @@ export default function Modal({
               </div>
               {errorName && <h4 className="error">*حقل الاسم مطلوب</h4>}
 
-              <div>
+              <div className="phone-container">
                 <label htmlFor="phone"> رقم الهاتف:</label>{" "}
                 <div
                   className={
