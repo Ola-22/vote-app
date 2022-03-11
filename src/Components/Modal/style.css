@@ -17,7 +17,7 @@
 
 .background .modal-wrapper {
   width: 90%;
-  height: 35%;
+  height: 40%;
   -webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -55,6 +55,7 @@
   font-weight: bold;
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
+  width: 100%;
 }
 
 .background .modal-wrapper .modal-content h4 {
@@ -69,6 +70,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 90%;
+}
+
+.background .modal-wrapper .modal-content .phone-container {
+  width: 90%;
 }
 
 .background .modal-wrapper .modal-content label {
@@ -79,7 +85,6 @@
 .background .modal-wrapper .modal-content input[type=text] {
   border: 1px solid #EBEBEB;
   border-radius: 5px;
-  width: 17em;
   height: 2em;
   font-size: 15px;
   -webkit-padding-start: 1em;
@@ -97,18 +102,14 @@
           align-items: center;
   border: 1px solid #EBEBEB;
   border-radius: 5px;
-  width: 16em;
-  height: 2em;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  height: 2.3em;
 }
 
 .background .modal-wrapper .modal-content .input-phone input {
   font-size: 15px;
   border: none;
   outline: none;
-  height: 2em;
+  height: 100%;
 }
 
 .background .modal-wrapper .modal-content .input-phone .logo-qatar {
@@ -127,17 +128,17 @@
 }
 
 .background .modal-wrapper .modal-content .input-phone h6 {
-  height: 1.7em;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  padding-left: 5px;
+  padding-left: 2em;
+  height: 100%;
 }
 
 .background .modal-wrapper .modal-content button {
   background-color: #11ACA1;
   cursor: pointer;
-  width: 120px;
-  height: 30px;
+  width: 60%;
+  height: 40px;
   border-radius: 10px;
   border: none;
   color: white;
