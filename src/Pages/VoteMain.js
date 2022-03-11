@@ -15,7 +15,7 @@ export default function VoteMain({ questions }) {
   };
 
   return (
-    <div>
+    <div style={{ width: "90%" }}>
       <div className="headerPage">
         <button onClick={() => navigate(-1)}>
           <img src="/images/btnBack.png" alt="" />
