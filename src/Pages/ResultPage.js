@@ -8,6 +8,7 @@ import axiosInstance from "../helpers/axios";
 import moment from "moment";
 import ChoicesCard from "../Components/Choices/ChoicesCard";
 import { FaSpinner } from "react-icons/fa";
+import "./style.css";
 
 export default function ResultPage({
   show,
@@ -34,11 +35,11 @@ export default function ResultPage({
       navigator
         .share({
           title: "",
-          text: `Check out `,
+          text: `مشاركة`,
           url: document.location.href,
         })
         .then(() => {
-          console.log("Successfully shared");
+          // console.log("Successfully shared");
         })
         .catch((error) => {
           console.error("Something went wrong sharing the blog", error);
@@ -133,7 +134,12 @@ export default function ResultPage({
               تأكيد
             </button>
           )}
-          <div onClick={handleOnClick}>gff</div>
+          <div onClick={handleOnClick} className="share-container">
+            <button>
+              <img src="/images/Share.png" alt="" />
+              <h4>مشاركة التصويت</h4>
+            </button>
+          </div>
         </div>
       ) : (
         <div>Loading... </div>
