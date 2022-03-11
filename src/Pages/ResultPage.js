@@ -29,6 +29,23 @@ export default function ResultPage({
 }) {
   const { slug } = useParams();
 
+  const handleOnClick = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "",
+          text: `Check out `,
+          url: document.location.href,
+        })
+        .then(() => {
+          console.log("Successfully shared");
+        })
+        .catch((error) => {
+          console.error("Something went wrong sharing the blog", error);
+        });
+    }
+  };
+
   const [results, setResults] = useState();
 
   useEffect(() => {
@@ -116,6 +133,7 @@ export default function ResultPage({
               تأكيد
             </button>
           )}
+          <div onClick={handleOnClick}>gff</div>
         </div>
       ) : (
         <div>Loading... </div>
