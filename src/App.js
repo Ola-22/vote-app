@@ -187,6 +187,7 @@ export default function App() {
           isLoading={isLoading}
           handleClick={handleClick}
           setName={setName}
+          name={name}
         />
       </div>
     </BrowserRouter>
