@@ -162,7 +162,7 @@
   -ms-flex-item-align: self-start;
       -ms-grid-row-align: self-start;
       align-self: self-start;
-  margin-right: 2em;
+  margin-right: 5%;
 }
 
 .background .borderError {
