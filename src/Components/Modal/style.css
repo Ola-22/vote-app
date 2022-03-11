@@ -124,14 +124,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 30px;
+  height: 100%;
 }
 
 .background .modal-wrapper .modal-content .input-phone h6 {
   font-size: 15px;
   font-weight: 400;
-  padding-left: 2em;
-  height: 100%;
+  padding-left: 1em;
 }
 
 .background .modal-wrapper .modal-content button {
