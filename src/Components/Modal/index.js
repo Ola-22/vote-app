@@ -18,13 +18,20 @@ export default function Modal({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    message?.status === true &&
-      setTimeout(() => {
-        setShowModal(false);
-        navigate("/confirm-code");
-      }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   message?.status === true &&
+  //     setTimeout(() => {
+  //       setShowModal(false);
+  //       navigate("/confirm-code");
+  //     }, 1000);
+  // });
+
+  // useEffect(() => {
+  //   error === false &&
+  //     setTimeout(() => {
+  //       navigate("/confirm-code");
+  //     }, 1000);
+  // });
 
   const modalRef = useRef();
   const closeModal = (e) => {
