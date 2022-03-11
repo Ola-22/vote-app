@@ -85,7 +85,7 @@
 .background .modal-wrapper .modal-content input[type=text] {
   border: 1px solid #EBEBEB;
   border-radius: 5px;
-  height: 2em;
+  height: 2.3em;
   font-size: 15px;
   -webkit-padding-start: 1em;
           padding-inline-start: 1em;
@@ -113,7 +113,8 @@
 }
 
 .background .modal-wrapper .modal-content .input-phone .logo-qatar {
-  background-color: #cecccc;
+  background-color: #F2F2F8;
+  border-radius: 5px;
   width: 2.5em;
   display: -webkit-box;
   display: -ms-flexbox;

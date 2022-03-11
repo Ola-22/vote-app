@@ -1,3 +1,6 @@
+@import "../../styles/variables";
+
+
 .skeleton{
     background-color: #ddd;
     border-radius: 4px;
@@ -43,7 +46,7 @@
 .shimmer{
     width: 50%;
     height: 100%;
-    background-color: rgb(236, 236, 236);
+    background-color: $gWhiteColor;
     transform: skewX(-20deg);
     box-shadow: 0 0 30px 30px rgba(255, 255,255,0.05);
 }
