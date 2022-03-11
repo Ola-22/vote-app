@@ -2,8 +2,7 @@ import React, { useRef } from "react";
 import "./style.css";
 import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Modal({
   postData,
@@ -14,7 +13,6 @@ export default function Modal({
   Input,
   setName,
 }) {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
