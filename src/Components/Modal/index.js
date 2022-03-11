@@ -42,7 +42,7 @@ export default function Modal({
       setError(false);
     }
 
-    if (message?.status === true && Input.length === 8 && name.length > 0) {
+    if (Input.length === 8 && name.length > 0) {
       setTimeout(() => {
         setShowModal(false);
         navigate("/confirm-code");
