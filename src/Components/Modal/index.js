@@ -3,6 +3,7 @@ import "./style.css";
 import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Modal({
   postData,
@@ -12,24 +13,13 @@ export default function Modal({
   setInput,
   Input,
   setName,
+  name,
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [errorName, setErrorName] = useState(false);
 
-  // useEffect(() => {
-  //   message?.status === true &&
-  //     setTimeout(() => {
-  //       setShowModal(false);
-  //       navigate("/confirm-code");
-  //     }, 1000);
-  // });
-
-  // useEffect(() => {
-  //   error === false &&
-  //     setTimeout(() => {
-  //       navigate("/confirm-code");
-  //     }, 1000);
-  // });
+  const navigate = useNavigate();
 
   const modalRef = useRef();
   const closeModal = (e) => {
@@ -51,6 +41,19 @@ export default function Modal({
     } else {
       setError(false);
     }
+
+    if (message?.status === true && Input.length === 8 && name.length > 0) {
+      setTimeout(() => {
+        setShowModal(false);
+        navigate("/confirm-code");
+      }, 1000);
+    }
+
+    if (name.length === 0) {
+      setErrorName(true);
+    } else {
+      setErrorName(false);
+    }
   }
   return (
     <>
@@ -64,12 +67,18 @@ export default function Modal({
                   type="text"
                   placeholder="ادخل الاسم"
                   onChange={(e) => setName(e.target.value)}
+                  className={errorName === true ? "borderError" : ""}
                 />
               </div>
+              {errorName && <h4 className="error">*حقل الاسم مطلوب</h4>}
 
               <div>
                 <label htmlFor="phone"> رقم الهاتف:</label>{" "}
-                <div className="input-phone">
+                <div
+                  className={
+                    error === true ? "input-phone borderError" : "input-phone"
+                  }
+                >
                   <div className="logo-qatar">
                     <img
                       src="/images/Qatar.jpg"
@@ -90,6 +99,7 @@ export default function Modal({
                   />
                 </div>
               </div>
+              {error && <h4 className="error">*حقل الهاتف مطلوب</h4>}
 
               {!loading && (
                 <button
@@ -116,7 +126,6 @@ export default function Modal({
                   تأكيد
                 </button>
               )}
-              {error && <h4 className="error">رقم الهاتف غير صحيح</h4>}
 
               {message?.status === true && (
                 <>
