@@ -17,7 +17,7 @@
 
 .background .modal-wrapper {
   width: 90%;
-  height: 45%;
+  height: 350px;
   -webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -110,6 +110,8 @@
   border: none;
   outline: none;
   height: 100%;
+  font-family: NeoSans, serif;
+  width: 100%;
 }
 
 .background .modal-wrapper .modal-content .input-phone .logo-qatar {
@@ -132,6 +134,8 @@
   font-size: 15px;
   font-weight: 400;
   padding-left: 1em;
+  height: 100%;
+  padding-top: 4px;
 }
 
 .background .modal-wrapper .modal-content button {

@@ -15,15 +15,10 @@ export default function ResultPage({
   setQuestionId,
   showButton,
   setShowButton,
-  vote,
   setActiveElement,
   isActive,
   openModal,
-  postData,
-  message,
   setMessage,
-  setShowModal,
-  showModal,
   isLoading,
   choice,
   handleClick,
@@ -35,7 +30,7 @@ export default function ResultPage({
       navigator
         .share({
           title: "",
-          text: `مشاركة`,
+          text: `مشاركة التصويت`,
           url: document.location.href,
         })
         .then(() => {
