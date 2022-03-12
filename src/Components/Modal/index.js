@@ -16,7 +16,7 @@ export default function Modal({
   name,
 }) {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const [errorName, setErrorName] = useState(false);
 
   const navigate = useNavigate();
@@ -37,24 +37,37 @@ export default function Modal({
 
   function handleChange(e) {
     if (Input.length < 8) {
-      setError(true);
-    } else {
-      setError(false);
+      setError("*حقل الهاتف مطلوب");
+    } else if (name.length === 0) {
+      setError("");
     }
 
-    if (Input.length === 8 && name.length > 0) {
+    if (name.length === 0) {
+      setErrorName("*حقل الاسم مطلوب");
+    } else if (name.length < 3) {
+      setErrorName("*حقل الاسم يجب أن يكون 4 حروف على  الأقل");
+    } else {
+      setErrorName("");
+    }
+
+    if (Input.length === 8 && name.length > 0 && message?.status === true) {
       setTimeout(() => {
         setShowModal(false);
         navigate("/confirm-code");
       }, 1000);
     }
+  }
 
-    if (name.length === 0) {
-      setErrorName(true);
+  function onChange(e) {
+    if (e.target.value.match(/[0-9]+$/gi)) {
+      setErrorName("*يجب ان يتكون حقل الاسم من حروف فقط");
+      setName(e.target.value);
     } else {
-      setErrorName(false);
+      setErrorName("");
+      setName(e.target.value);
     }
   }
+
   return (
     <>
       {showModal && (
@@ -66,11 +79,11 @@ export default function Modal({
                 <input
                   type="text"
                   placeholder="ادخل الاسم"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={onChange}
                   className={errorName === true ? "borderError" : ""}
                 />
               </div>
-              {errorName && <h4 className="error">*حقل الاسم مطلوب</h4>}
+              <h4 className="error">{errorName}</h4>
 
               <div className="phone-container">
                 <label htmlFor="phone"> رقم الهاتف:</label>{" "}
@@ -95,11 +108,10 @@ export default function Modal({
                     maxLength="8"
                     onChange={(e) => setInput(e.target.value)}
                     required
-                    pattern=""
                   />
                 </div>
               </div>
-              {error && <h4 className="error">*حقل الهاتف مطلوب</h4>}
+              <h4 className="error">{error}</h4>
 
               {!loading && (
                 <button
