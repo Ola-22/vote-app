@@ -32,9 +32,6 @@
             font-weight: bold;  
             transition: 1s ease-in-out;
             width: 100%;
-            & h4{
-                font-size: 14px;
-            }
 
             .name-container{
                 display: flex;
@@ -116,7 +113,7 @@
     }
 
     .error{
-    font-size: 12px;
+    font-size: 10px;
     color: red;
     align-self: self-start;
     margin-right: 5%;
