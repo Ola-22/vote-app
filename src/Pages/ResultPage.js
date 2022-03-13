@@ -9,6 +9,7 @@ import moment from "moment";
 import ChoicesCard from "../Components/Choices/ChoicesCard";
 import { FaSpinner } from "react-icons/fa";
 import "./style.css";
+import SkeletonArticle from "../Components/Skeletons/SkeletonArticle";
 
 export default function ResultPage({
   show,
@@ -29,8 +30,8 @@ export default function ResultPage({
     if (navigator.share) {
       navigator
         .share({
-          title: "",
-          text: `مشاركة التصويت`,
+          title: "مشاركة التصويت",
+          text: `Qvote`,
           url: document.location.href,
         })
         .then(() => {
@@ -59,7 +60,7 @@ export default function ResultPage({
     <div className="result">
       <Header />
 
-      {results ? (
+      {results && (
         <div>
           <QuestionCard
             question={results.question}
@@ -136,9 +137,8 @@ export default function ResultPage({
             </button>
           </div>
         </div>
-      ) : (
-        <div>Loading... </div>
       )}
+      {!results && [1, 2, 3].map((n) => <SkeletonArticle key={n} />)}
     </div>
   );
 }

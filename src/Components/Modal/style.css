@@ -58,10 +58,6 @@
   width: 100%;
 }
 
-.background .modal-wrapper .modal-content h4 {
-  font-size: 14px;
-}
-
 .background .modal-wrapper .modal-content .name-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -162,7 +158,7 @@
 }
 
 .background .error {
-  font-size: 12px;
+  font-size: 10px;
   color: red;
   -ms-flex-item-align: self-start;
       -ms-grid-row-align: self-start;
