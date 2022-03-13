@@ -139,11 +139,11 @@ export default function Modal({
                 </button>
               )}
 
-              {message?.status === true && (
+              {/* {message?.status === true && (
                 <>
                   <h6>{message?.message}</h6>
                 </>
-              )}
+              )} */}
 
               {message?.status === false && (
                 <>
