@@ -22,7 +22,7 @@ export default function NewShared({ questions }) {
           />
         </Link>
       ))}
-      {!NewQue && [1, 2, 3].map((n) => <SkeletonArticle key={n} />)}
+      {!NewQue && [1, 2, 3, 4, 5].map((n) => <SkeletonArticle key={n} />)}
     </div>
   );
 }
