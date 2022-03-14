@@ -17,7 +17,7 @@
 
 .background .modal-wrapper {
   width: 90%;
-  height: 350px;
+  height: 300px;
   -webkit-box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -58,6 +58,19 @@
   width: 100%;
 }
 
+.background .modal-wrapper .modal-content form {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .background .modal-wrapper .modal-content .name-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -66,11 +79,17 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 90%;
 }
 
 .background .modal-wrapper .modal-content .phone-container {
-  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
 }
 
 .background .modal-wrapper .modal-content label {
@@ -108,6 +127,7 @@
   height: 100%;
   font-family: NeoSans, serif;
   width: 100%;
+  border-radius: 5px;
 }
 
 .background .modal-wrapper .modal-content .input-phone .logo-qatar {
@@ -129,9 +149,10 @@
 .background .modal-wrapper .modal-content .input-phone h6 {
   font-size: 15px;
   font-weight: 400;
-  padding-left: 1em;
+  -webkit-padding-start: 1em;
+          padding-inline-start: 1em;
   height: 100%;
-  padding-top: 4px;
+  padding-top: 5px;
 }
 
 .background .modal-wrapper .modal-content button {
@@ -144,6 +165,17 @@
   color: white;
   font-size: 18px;
   margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  margin-top: 3%;
 }
 
 .background .modal-wrapper .close-btn {
@@ -163,7 +195,6 @@
   -ms-flex-item-align: self-start;
       -ms-grid-row-align: self-start;
       align-self: self-start;
-  margin-right: 5%;
 }
 
 .background .borderError {
