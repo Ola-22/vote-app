@@ -16,13 +16,13 @@ export default function ResultPage({
   setQuestionId,
   showButton,
   setShowButton,
-  setActiveElement,
-  isActive,
   openModal,
   setMessage,
   isLoading,
   choice,
   handleClick,
+  selected,
+  selectItems,
 }) {
   const { slug } = useParams();
 
@@ -70,7 +70,7 @@ export default function ResultPage({
           />
           <h5 className="title">المرشحين</h5>
           <>
-            {results.candidates.map((can) => (
+            {results.candidates.map((can, index) => (
               <div
                 key={can.id}
                 className="choices"
@@ -88,15 +88,16 @@ export default function ResultPage({
                   voteNumber={can.total_votes}
                   RateVote={can.vote_precentage}
                   name={can.name}
-                  className={
-                    isActive === can.id ? "choices-card active" : "choices-card"
-                  }
                   onClick={() => {
-                    setActiveElement(can.id);
-                    choice.push(can.id);
+                    selectItems(can);
                     setQuestionId(results.id);
                     setMessage(false);
+                    !selected.has(can) && choice.push(can);
+                    selected.has(can) && choice.pop();
                   }}
+                  className={
+                    selected.has(can) ? "choices-card active" : "choices-card"
+                  }
                 />
               </div>
             ))}
