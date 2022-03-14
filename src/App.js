@@ -14,7 +14,6 @@ export default function App() {
   const [showButton, setShowButton] = useState(false);
   const [message, setMessage] = useState();
   const [showModal, setShowModal] = useState(false);
-  const [isActive, setActive] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [questions, setQuestions] = useState();
   const [macAddress, setMacAddress] = useState(null);
@@ -24,6 +23,24 @@ export default function App() {
   const [codeInput, setCodeInput] = useState("");
   const [name, setName] = useState("");
 
+  const [selected, setSelected] = useState(new Set());
+
+  const selectItems = (select) => {
+    setSelected((selected) => {
+      if (!selected.has(select)) {
+        selected = new Set(selected);
+        selected.add(select);
+      } else {
+        selected = new Set(selected);
+        selected.delete(select);
+      }
+
+      return selected;
+    });
+  };
+
+  const choiceArr = choice.map((ch) => ch.id);
+
   const InputPhone = "974" + Input;
 
   const openModal = () => {
@@ -32,13 +49,9 @@ export default function App() {
     }, 2000);
   };
 
-  function setActiveElement(id) {
-    setActive(id);
-  }
-
   const show = () => {
     setShowButton(!showButton);
-    setActive(null);
+
     setMessage(false);
   };
 
@@ -52,7 +65,7 @@ export default function App() {
   async function postData() {
     const data = {
       mac_address: macAddress,
-      candidate_id: choice,
+      candidate_id: choiceArr,
       vote_id: questionId,
       phone: InputPhone,
       name: name,
@@ -92,7 +105,7 @@ export default function App() {
   async function confirmCode() {
     const data = {
       mac_address: macAddress,
-      candidate_id: choice,
+      candidate_id: choiceArr,
       vote_id: questionId,
       phone: InputPhone,
       code: codeInput,
@@ -141,13 +154,10 @@ export default function App() {
             element={
               <ResultPage
                 questions={questions}
-                setActive={setActive}
                 setChoice={setChoice}
                 setShowButton={setShowButton}
                 setQuestionId={setQuestionId}
                 showButton={showButton}
-                setActiveElement={setActiveElement}
-                isActive={isActive}
                 show={show}
                 postData={postData}
                 message={message}
@@ -158,6 +168,8 @@ export default function App() {
                 isLoading={isLoading}
                 choice={choice}
                 handleClick={handleClick}
+                selectItems={selectItems}
+                selected={selected}
               />
             }
           />

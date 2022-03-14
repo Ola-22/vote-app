@@ -4,6 +4,7 @@ import "./style.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactInputVerificationCode from "react-input-verification-code";
+import { FaSpinner } from "react-icons/fa";
 
 export default function ConfirmCode({
   confirmCode,
@@ -15,6 +16,7 @@ export default function ConfirmCode({
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSend, setModalSend] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,6 +25,14 @@ export default function ConfirmCode({
       setTimeout(() => {
         navigate(-1);
       }, 1000);
+  }
+
+  function handleClick() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setModalOpen(true);
+    }, 1500);
   }
   return (
     <div className="confirm-code">
@@ -39,15 +49,32 @@ export default function ConfirmCode({
             onChange={(newValue) => setCodeInput(newValue)}
           />
         </div>
-        <button
-          onClick={() => {
-            confirmCode();
-            setModalOpen(true);
-            navigation();
-          }}
-        >
-          ارسال
-        </button>
+
+        {!loading && (
+          <button
+            onClick={() => {
+              handleClick();
+              confirmCode();
+              navigation();
+            }}
+          >
+            ارسال
+          </button>
+        )}
+
+        {loading && (
+          <button
+            disabled
+            onClick={() => {
+              handleClick();
+              confirmCode();
+              navigation();
+            }}
+          >
+            <FaSpinner icon="spinner" />
+            ارسال
+          </button>
+        )}
         <button
           className="send-again"
           onClick={() => {
