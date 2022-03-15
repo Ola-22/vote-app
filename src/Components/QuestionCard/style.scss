@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  // width: 334px;
   height: 117px;
   box-shadow: -3px 7px 6.5px rgba(0,0,0,0.05);
   border-radius: 10px;
@@ -52,10 +51,9 @@
     }
   }
   .background-container{
-    display: flex;
+    @extend .flexBox;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    
     & p{
       width: 28px;
       height: 28px;
