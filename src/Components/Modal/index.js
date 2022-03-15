@@ -121,7 +121,12 @@ export default function Modal({
 
                 {message?.status === false && (
                   <>
-                    <h6>{message?.message}</h6>
+                    <h6 className="message-content">{message?.message}</h6>
+                  </>
+                )}
+                {message?.status === true && (
+                  <>
+                    <h6 className="message-content">{message?.message}</h6>
                   </>
                 )}
               </form>
