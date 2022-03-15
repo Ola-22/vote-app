@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import SkeletonArticle from "../Skeletons/SkeletonArticle";
 
 export default function NewShared({ questions }) {
-  const NewQue = questions?.filter((qu) => qu.type === "public");
+  const NewQue = questions
+    ?.filter((qu) => qu.type === "public")
+    .sort((a, b) => new Date(b.end_at) - new Date(a.end_at));
 
   return (
     <div>
@@ -15,9 +17,7 @@ export default function NewShared({ questions }) {
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
             img="/images/Group.png"
             numberTitle="عدد المصوتين"
-            numberVote={qu?.candidates
-              .map((can) => can.total_votes)
-              .reduce((a, b) => a + b)}
+            numberVote={qu.total_votes}
             voteContent="صوت"
           />
         </Link>

@@ -1,13 +1,13 @@
 @import "../../styles/variables";
+@import "../../styles/main";
 
 .background{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
-    display: flex;
+    @extend .flexBox;
     justify-content: center;
-    align-items: center;
     top: 0;
     
     .modal-wrapper{
@@ -16,17 +16,15 @@
         box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
         background: #fff;
         color: #000;
-        display: flex;
+        @extend .flexBox;
         justify-content: center;
-        align-items: center;
         position: relative;
         z-index: 10;
         border-radius: 10px;
         .modal-content{
-            display: flex;
+            @extend .flexBox;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
             line-height: 1.8;
             color: #141414;
             font-weight: bold;  
@@ -83,9 +81,8 @@
                background-color: $gWhiteColor;
                border-radius: 5px;
                width: 2.5em;
-               display: flex;
+               @extend .flexBox;
                 justify-content: center;
-                align-items: center;
                 height: 100%;
            }
 
@@ -107,9 +104,8 @@
         color: white;
         font-size: 18px;
         margin-top: 10px;
-        display: flex;
+        @extend .flexBox;
         justify-content: center;
-        align-items: center;
         margin: auto;
         margin-top: 3%;
        }
@@ -134,5 +130,8 @@
 
     .borderError{
         border: 1px solid red !important;
+    }
+    .message-content{
+        text-align: center;
     }
 }

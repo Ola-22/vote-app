@@ -4,7 +4,6 @@ import VoteMain from "./Pages/VoteMain";
 import ResultPage from "./Pages/ResultPage";
 import { useState, useEffect } from "react";
 import axiosInstance from "./helpers/axios";
-import "./styles/main.css";
 import Modal from "./Components/Modal";
 import ConfirmCode from "./Pages/ConfirmCode";
 

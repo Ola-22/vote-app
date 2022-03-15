@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import SkeletonArticle from "../Skeletons/SkeletonArticle";
 
 export default function MostShared({ questions }) {
-  const MostQue = questions?.filter((qu) => qu.type === "public");
+  const MostQue = questions
+
+    ?.filter((qu) => qu.type === "public")
+    .sort((a, b) => b.total_votes - a.total_votes);
 
   return (
     <div>
@@ -15,12 +18,7 @@ export default function MostShared({ questions }) {
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
             img="/images/Group.png"
             numberTitle="عدد المصوتين"
-            numberVote={
-              qu?.candidates
-                .map((can) => can.total_votes)
-                .reduce((a, b) => a + b)
-              // .sort((a, b) => b - a)
-            }
+            numberVote={qu.total_votes}
             voteContent="صوت"
           />
         </Link>
