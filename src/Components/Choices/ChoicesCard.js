@@ -14,7 +14,7 @@ export default function ChoicesCard({
       <img src={src} alt="" />
       <div>
         <h4>{name}</h4>
-        <div>{progress}</div>
+        <div style={{ marginTop: "10px" }}>{progress}</div>
       </div>
 
       <div>
